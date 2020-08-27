@@ -1,0 +1,50 @@
+[
+    {
+        "title": "501st",
+        "units": [
+            "GENERALSKYWALKER",
+            "CT5555",
+            "ARCTROOPER501ST",
+            "CT210408",
+            "CT7567"
+        ]
+    },{
+        "title": "Bounty Hunters",
+        "units": [
+            "BOSSK",
+            "BOBAFETT",
+            "JANGOFETT",
+            "DENGAR",
+            "ZAMWESELL",
+            "GREEDO",
+            "CADBANE",
+            "THEMANDALORIAN",
+            "GREEFKARGA"
+        ]
+    },{
+        "title": "Clones",
+        "units": [
+            "SHAAKTI",
+            "CT5555",
+            "ARCTROOPER501ST",
+            "CT210408",
+            "CT7567",
+            "CC2224",
+            "CLONESERGEANTPHASEI",
+            "BARRISSOFFEE",
+            "AHSOKATANO"
+        ]
+    },{
+        "title": "Empire",
+        "units": [
+            "EMPERORPALPATINE",
+            "VADER",
+            "IMPERIALPROBEDROID",
+            "GRANDMOFFTARKIN",
+            "TIEFIGHTERIMPERIAL",
+            "DEATHTROOPER",
+            "DIRECTORKRENNIC",
+            "COUNTDOOKU"
+        ]
+    }
+]
