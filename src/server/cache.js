@@ -1,30 +1,22 @@
 class cache{
     constructor(){
-        this.guildCache = [];
-        this.playerCache = [];
+        this.gCache = new Map();
+        this.pCache = new Map();
     }
 
     addGuild(data){
-        const idx = this.guildCache.indexOf(data);
-        // Update current data, or push new entry
-        if(idx === -1){
-            this.guildCache.push(data);
-        }
-        else{
-            this.guildCache[idx] = data
-        }
-        console.log(this.guildCache);
+        this.gCache.set(data.id, {...data, timeStamp: new Date()});
     }
 
-    addPlayer(data){
-        const idx = this.playerCache.indexOf(data);
-        // Update current data, or push new entry
-        if(idx === -1){
-            this.playerCache.push(data);
-        }
-        else{
-            this.playerCache[idx] = data
-        }
+    addPlayer(data, guild){
+        this.pCache.set(data.id, { guild, ...data});
+    }
+    getGuild(id){
+        return this.gCache.get(id);
+    }
+
+    showCache(){
+        console.log(this.gCache);
     }
 }
 
