@@ -23,10 +23,7 @@ const getSquads = (unitsList) => {
             squads.push({title: squad.title, units: unitArr});
         }
     })
-}
-
-const convertName = (name) => {
-    return name;
+    return squads
 }
 
 module.exports = {
