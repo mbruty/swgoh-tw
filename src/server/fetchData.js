@@ -1,12 +1,12 @@
 const ApiSwgohHelp = require('api-swgoh-help');
 require('dotenv').config();
-const fs = require('fs');
-const Cache = require('./cache.js');
+//Create the cache and set the time to live to 6 hours
+const NodeCache = require( "node-cache" );
 const codes = [647793576];
 const sortToons = require('./fetchData/sortToons');
 const MAX_REJECTIONS = 5;
 
-const dataCache = new Cache();
+const guildCache = new NodeCache({stdTTL: 21600});
 
 let swapi = undefined;
 // API Login
@@ -25,7 +25,7 @@ const login = () => {
 
 //@param allycodes => Array of ally codes to fetch the guild data for
 //@param count | default zero => Number of rejections
-//@return array of guild id's
+//@return Promise with array of guild id's
 
 const fetchGuildData = async (allycodes, count = 0) => {
     return new Promise(async (resolve, reject) => {
@@ -54,7 +54,7 @@ const fetchGuildData = async (allycodes, count = 0) => {
                 //Add the guild id to the result array
                 resultArr.push(res.id);
                 //Add the guild to the cache
-                dataCache.addGuild(res)
+                guildCache.set(res.id, res)
             })
             resolve(resultArr);
         }
@@ -63,7 +63,7 @@ const fetchGuildData = async (allycodes, count = 0) => {
 
 //@param allycodes => Array of allycodes to obtain
 //@param count | default zero => Number of rejections
-//@return void Promise
+//@return Promise with guildID 
 //Fetches the player data for the guild and updates the cache with the guild info
 const fetchPlayerData = async (allycodes, count = 0, guild) => {
     return new Promise(async (resolve, reject) => {
@@ -112,8 +112,8 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
             });
             guild.fetchedPlayers = true;
             guild.roster = playerMap;
-            dataCache.addGuild(guild);
-            dataCache.showCache();
+            guildCache.set(guild.id, guild);
+            resolve(guild.id);
         }
     })
 }
@@ -121,9 +121,10 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
 const processGuild = (guildArr) => {
     guildArr.forEach(guild => {
         //Retrieve the guild from the cache
-        let cachedGuild = dataCache.getGuild(guild);
-        let playerArray = [];
+        let cachedGuild = guildCache.get(guild);
         //Create the array of allycodes within the guild
+        let playerArray = [];
+        //Get each player from a guild's roster and add their allycode to the array
         cachedGuild.roster.forEach(player => {
             playerArray.push(player.allyCode);
         });
@@ -146,5 +147,6 @@ const start = () => {
     )
     .catch(err => console.error(err));
 }
+
 
 module.exports = start;
