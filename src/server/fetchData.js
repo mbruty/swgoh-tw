@@ -1,9 +1,11 @@
 const ApiSwgohHelp = require('api-swgoh-help');
 require('dotenv').config();
+const fs = require('fs');
 //Create the cache and set the time to live to 6 hours
 const NodeCache = require( "node-cache" );
 const codes = [647793576];
 const sortToons = require('./fetchData/sortToons');
+const sortPlayers = require('./fetchData/sortPlayers');
 const MAX_REJECTIONS = 5;
 
 const guildCache = new NodeCache({stdTTL: 21600});
@@ -43,7 +45,7 @@ const fetchGuildData = async (allycodes, count = 0) => {
         }
         if(warning) {
             console.warn(warning);
-            console.log(result);
+            fs.readFileSync('dump.json',JSON.stringify(result, null, 4));
             fetchGuildData(allycodes, count + 1)
             .then((res) => resolve(res))
             .catch((err) => reject(err));
@@ -85,7 +87,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
             .catch((err) => reject(err))
         }
         else{
-            let playerMap = new Map();
+            let playerArr = [];
             result.forEach(player => {
                 let toonArr = [];
                 let shipArr = [];
@@ -108,10 +110,16 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                 sortToons(toonArr);
                 // Sort the ships by power
                 sortToons(shipArr);
-                playerMap.set(player.allyCode, {name: player.name, level: player.level, toons: toonArr, ships: shipArr})
+
+                // Find the stat for gp
+                let gp = player.stats.filter(stat => stat.nameKey === "STAT_GALACTIC_POWER_ACQUIRED_NAME");
+                gp = gp[0].value;
+                playerArr.push({name: player.name, gp: gp, level: player.level, toons: toonArr, ships: shipArr})
+                // Sort the player array to get the highest gp first
+                sortPlayers(playerArr)
             });
             guild.fetchedPlayers = true;
-            guild.roster = playerMap;
+            guild.roster = playerArr;
             guildCache.set(guild.id, guild);
             resolve(guild.id);
         }
@@ -131,7 +139,7 @@ const processGuild = (guildArr) => {
         //Gather all of the players details
         fetchPlayerData(playerArray, 0, cachedGuild)
         .then(res => {
-            console.log(res)
+            console.log(guildCache.get(res))
         })
 
     })
