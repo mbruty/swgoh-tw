@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let squadData = JSON.parse(fs.readFileSync('./server/units/squads.json'));
+let squadData = JSON.parse(fs.readFileSync('./server/fetchData/units/squads.json'));
 
 const getSquads = (unitsList) => {
     const unitsMap = new Map();
