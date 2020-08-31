@@ -3,7 +3,6 @@ require('dotenv').config();
 const fs = require('fs');
 //Create the cache and set the time to live to 6 hours
 const NodeCache = require( "node-cache" );
-const codes = [647793576];
 const sortToons = require('./fetchData/sortToons');
 const sortPlayers = require('./fetchData/sortPlayers');
 const MAX_REJECTIONS = 5;
@@ -65,13 +64,14 @@ const fetchGuildData = async (allycodes, count = 0) => {
 
 //@param allycodes => Array of allycodes to obtain
 //@param count | default zero => Number of rejections
+//@param guild => The guildID to update
 //@return Promise with guildID 
 //Fetches the player data for the guild and updates the cache with the guild info
 const fetchPlayerData = async (allycodes, count = 0, guild) => {
     return new Promise(async (resolve, reject) => {
         if(count === MAX_REJECTIONS) reject(new Error("Maximum number of retrys exceeded"))
         const payload = {
-            allycodes,
+            allycodes: allycodes,
             collection: "unitsList"
         };
         let { result, error, warning } = await swapi.fetchPlayer( payload )
@@ -126,35 +126,44 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
     })
 }
 
+const createPlayerArray = (guildCode) => {
+    // Get the guild from the cache
+    let guild = guildCache.get(guildCode);
+    let arr = [];
+    guild.roster.forEach(player => {
+        arr.push(player.allyCode);
+    });
+    return {
+        guild: guild,
+        playerArr: arr
+    }
+}
 const processGuild = (guildArr) => {
-    guildArr.forEach(guild => {
-        //Retrieve the guild from the cache
-        let cachedGuild = guildCache.get(guild);
-        //Create the array of allycodes within the guild
-        let playerArray = [];
-        //Get each player from a guild's roster and add their allycode to the array
-        cachedGuild.roster.forEach(player => {
-            playerArray.push(player.allyCode);
-        });
-        //Gather all of the players details
-        fetchPlayerData(playerArray, 0, cachedGuild)
-        .then(res => {
-            console.log(guildCache.get(res))
+    return new Promise((resolve, reject) => {
+        let guildOne = createPlayerArray(guildArr[0]);
+        let guildTwo = createPlayerArray(guildArr[1]);
+    
+        let fetchOne = fetchPlayerData(guildOne.playerArr, 0, guildOne.guild)
+        let fetchTwo = fetchPlayerData(guildTwo.playerArr, 0, guildTwo.guild)
+    
+        Promise.all([fetchOne, fetchTwo]).then(res => {
+            resolve(res);
         })
-
-    })
+        .catch((err => console.log("err", err)))
+    });
 }
 
-
-const start = () => {
-    login()
-    //Fetch the data for the tracked guilds
-    .then(() => fetchGuildData(codes)
-        .then((res) => processGuild(res))
-        .catch((err) => console.log(err))
-    )
-    .catch(err => console.error(err));
+module.exports = {
+    fetchGuildPlayerData: (allycodes) => {
+        return new Promise((resolve, reject) => {
+            fetchGuildData(allycodes)
+            .then(res => processGuild(res)
+                        .then(respose => resolve(respose))
+                        .catch(err => reject(err))
+            )
+            .catch(err => reject(err))
+        })
+    },
+    login: login,
+    cache: guildCache
 }
-
-
-module.exports = start;
