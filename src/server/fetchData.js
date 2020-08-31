@@ -8,6 +8,7 @@ const sortPlayers = require('./fetchData/sortPlayers');
 const MAX_REJECTIONS = 5;
 
 const guildCache = new NodeCache({stdTTL: 21600});
+const playerCache = new NodeCache({stdTTL: 21600});
 
 let swapi = undefined;
 // API Login
@@ -28,11 +29,31 @@ const login = () => {
 //@param count | default zero => Number of rejections
 //@return Promise with array of guild id's
 
-const fetchGuildData = async (allycodes, count = 0) => {
+const fetchGuildData = async (codes, count = 0) => {
     return new Promise(async (resolve, reject) => {
+        let resultArr = [];
+
+        let searchCodes = [];
+        // See if the cache contains any of the allycodes and remove it from the search array
+        // Only look on first pass
+        if(count === 0){
+            codes.forEach((code) => {
+                if(playerCache.has(code)){
+                    resultArr.push(playerCache.get(code))
+                }
+                else{
+                    searchCodes.push(code)
+                }
+            });
+        }
+        // If all of the codes have been found in the cache, return as no new data is needed
+        if(searchCodes.length === 0){
+            resolve(resultArr);
+            return;
+        }
         if(count === MAX_REJECTIONS) reject(new Error("Maximum number of retrys exceeded"))
         const payload = {
-            allycodes,
+            allycodes: searchCodes,
             collection: "guildExchangeItemList"
         }
         let  { result, error, warning }  = await swapi.fetchGuild( payload );
@@ -40,17 +61,18 @@ const fetchGuildData = async (allycodes, count = 0) => {
         //Result is an array of guild data
         //Example object returned see guild_sample_result.json
         if(error) {
+            console.log("Guild error", error);
             reject(error);
         }
         if(warning) {
             console.warn(warning);
             fs.readFileSync('dump.json',JSON.stringify(result, null, 4));
-            fetchGuildData(allycodes, count + 1)
+            fetchGuildData(searchCodes, count + 1)
             .then((res) => resolve(res))
             .catch((err) => reject(err));
         }
         else{
-            let resultArr = [];
+            
             result.forEach(res => {
                 //Add the guild id to the result array
                 resultArr.push(res.id);
@@ -69,6 +91,13 @@ const fetchGuildData = async (allycodes, count = 0) => {
 //Fetches the player data for the guild and updates the cache with the guild info
 const fetchPlayerData = async (allycodes, count = 0, guild) => {
     return new Promise(async (resolve, reject) => {
+
+        // Fetched players is set once the guild has been processed and placed in the cache
+        // This will only be true if the guild has been processed and is contained in the cache
+        if(guild.fetchedPlayers){
+            resolve(guild.id);
+            return;
+        }
         if(count === MAX_REJECTIONS) reject(new Error("Maximum number of retrys exceeded"))
         const payload = {
             allycodes: allycodes,
@@ -76,12 +105,11 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         };
         let { result, error, warning } = await swapi.fetchPlayer( payload )
         if(error) {
-            console.error(error);
+            console.log("Player error", error);
             reject(error);
         }
         if(warning) {
             console.warn(warning);
-            console.log(result);
             fetchPlayerData(allycodes, count + 1)
             .then((res) => resolve(res))
             .catch((err) => reject(err))
@@ -89,6 +117,10 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         else{
             let playerArr = [];
             result.forEach(player => {
+
+                // Add the player to the player cache
+                playerCache.set(player.allyCode, guild.id)
+
                 let toonArr = [];
                 let shipArr = [];
                 player.roster.forEach(character => {
@@ -153,17 +185,19 @@ const processGuild = (guildArr) => {
     });
 }
 
+const fetchGuildPlayerData = (allycodes) => {
+    return new Promise((resolve, reject) => {
+        fetchGuildData(allycodes)
+        .then(res => processGuild(res)
+                    .then(respose => resolve(respose))
+                    .catch(err => reject(err))
+        )
+        .catch(err => reject(err))
+    })
+}
+
 module.exports = {
-    fetchGuildPlayerData: (allycodes) => {
-        return new Promise((resolve, reject) => {
-            fetchGuildData(allycodes)
-            .then(res => processGuild(res)
-                        .then(respose => resolve(respose))
-                        .catch(err => reject(err))
-            )
-            .catch(err => reject(err))
-        })
-    },
+    fetchGuildPlayerData: fetchGuildPlayerData,
     login: login,
     cache: guildCache
 }
