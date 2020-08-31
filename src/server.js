@@ -1,40 +1,40 @@
-const express = require('express');
-const start = require('./server/fetchData');
+const {login} = require('./server/fetchData');
+const startService = require('./server/api');
 require('dotenv').config();
-const app = express();
-var cors = require('cors')
-var bodyParser = require('body-parser');
-// Cors 
 
-const whitelist = ['http://localhost:5000', 'http://localhost:3000', 'http://bruty.net'];
+const start = () => {
 
-const corsOptions = {
-    origin: (origin, callback)  => {
-        if(whitelist.indexOf(origin) !== -1) {
-            callback(null,true);
-        }
-        else{
-            callback('Route not allowed');
-        }
-    },
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+    // Login to swgoh.help api
+    const swapi = () => {
+        login()
+        .then(() => console.log('Logged in to swgoh.help'))
+        .catch(err => {
+            console.log("Error logging in to swgoh.help: ", err)
+            setTimeout(() => {
+                console.log("Retrying swgoh.help login...");
+                swapi();
+            }, 5000)
+        });
+    }
+
+    const api = () => {
+        startService()
+        .catch(err => {
+            console.error("Error starting api", err);
+            setTimeout(() => {
+                console.log("Retrying api start...");
+                api();
+            }, 5000)
+        })
+    }
+
+    swapi()
+    api()
 }
-
-app.use(bodyParser.json());
-app.use(cors(corsOptions));
-
-// Routes
-app.get('/:id', (req, res) => {
-    const id = req.params.id;
-})
 
 //Start services
 console.clear();
 start();
-const port = process.env.PORT || 5000;
-app.listen(port);
-
-console.log('App is listening on port ' + port);
 
 // Log any unhandled erors
 process.on('unhandledRejection', err => {
