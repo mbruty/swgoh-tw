@@ -5,6 +5,7 @@ const fs = require('fs');
 const NodeCache = require( "node-cache" );
 const sortToons = require('./fetchData/sortToons');
 const sortPlayers = require('./fetchData/sortPlayers');
+const { getSquads } = require('./fetchData/units');
 const MAX_REJECTIONS = 5;
 
 const guildCache = new NodeCache({stdTTL: 21600});
@@ -61,18 +62,23 @@ const fetchGuildData = async (codes, count = 0) => {
         //Result is an array of guild data
         //Example object returned see guild_sample_result.json
         if(error) {
-            console.log("Guild error", error);
+            console.log("Guild error");
             reject(error);
         }
-        if(warning) {
-            console.warn(warning);
-            fs.readFileSync('dump.json',JSON.stringify(result, null, 4));
-            fetchGuildData(searchCodes, count + 1)
-            .then((res) => resolve(res))
-            .catch((err) => reject(err));
+        else if(warning) {
+            console.warn("Warning:", warning, "Done");
+            // Check both results are there
+            if(result[0] && result[1]){
+                fetchGuildData(searchCodes, count + 1)
+                .then((res) => resolve(res))
+                .catch((err) => reject(err));
+            }
+            else{
+                if(!result[0]) reject(`Guild ${codes[0]} not found`)
+                if(!result[1]) reject(`Guild ${codes[1]} not found`)
+            }
         }
         else{
-            
             result.forEach(res => {
                 //Add the guild id to the result array
                 resultArr.push(res.id);
@@ -87,7 +93,7 @@ const fetchGuildData = async (codes, count = 0) => {
 //@param allycodes => Array of allycodes to obtain
 //@param count | default zero => Number of rejections
 //@param guild => The guildID to update
-//@return Promise with guildID 
+//@return Promise with guild object
 //Fetches the player data for the guild and updates the cache with the guild info
 const fetchPlayerData = async (allycodes, count = 0, guild) => {
     return new Promise(async (resolve, reject) => {
@@ -95,7 +101,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         // Fetched players is set once the guild has been processed and placed in the cache
         // This will only be true if the guild has been processed and is contained in the cache
         if(guild.fetchedPlayers){
-            resolve(guild.id);
+            resolve(guild);
             return;
         }
         if(count === MAX_REJECTIONS) reject(new Error("Maximum number of retrys exceeded"))
@@ -106,7 +112,6 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         let { result, error, warning } = await swapi.fetchPlayer( payload )
         if(error) {
             console.log("Player error", error);
-            reject(error);
         }
         if(warning) {
             console.warn(warning);
@@ -116,6 +121,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         }
         else{
             let playerArr = [];
+            let spookySquads = [];
             result.forEach(player => {
 
                 // Add the player to the player cache
@@ -138,6 +144,12 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                         shipArr.push(charObj);
                     }
                 })
+
+                let trackedSquads = getSquads(player.roster, player.name);
+                // If the player has a tracked squad, add it to the array
+                if(trackedSquads.squads.length > 0){
+                    spookySquads.push(trackedSquads)
+                }
                 // Sort the characters by power
                 sortToons(toonArr);
                 // Sort the ships by power
@@ -152,8 +164,9 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
             });
             guild.fetchedPlayers = true;
             guild.roster = playerArr;
+            guild.squads = spookySquads;
             guildCache.set(guild.id, guild);
-            resolve(guild.id);
+            resolve(guild);
         }
     })
 }
@@ -181,7 +194,7 @@ const processGuild = (guildArr) => {
         Promise.all([fetchOne, fetchTwo]).then(res => {
             resolve(res);
         })
-        .catch((err => console.log("err", err)))
+        .catch((err => console.log("err")))
     });
 }
 
