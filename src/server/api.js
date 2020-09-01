@@ -6,17 +6,16 @@ const { fetchGuildPlayerData } = require('./fetchData');
 
 
 // Cors 
-//const whitelist = ['http://localhost:5000', 'http://localhost:3000', 'http://bruty.net'];
+const whitelist = ['http://localhost:5000', 'http://localhost:3000', 'http://bruty.net'];
 
 const corsOptions = {
     origin: (origin, callback)  => {
-        callback(null, true)
-        // if(whitelist.indexOf(origin) !== -1) {
-        //     callback(null,true);
-        // }
-        // else{
-        //     callback('Route not allowed');
-        // }
+        if(whitelist.indexOf(origin) !== -1) {
+            callback(null,true);
+        }
+        else{
+            callback('Route not allowed');
+        }
     },
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
@@ -38,26 +37,20 @@ const startService = () => {
 }
 
 // Routes
-app.get('/api/guilds', (req, res) => {
-    // If the request has two allycodes 
-    if(req.body.codes && req.body.codes.length === 2){
-        let [ guildOne, guildTwo ] = req.body.codes;
-        // Get rid of any - in the codes
-        guildOne = guildOne.replace(/-/g, "");
-        guildTwo = guildTwo.replace(/-/g, "");
 
-        // If each allycode is of the correct length
-        if(guildOne.length === 9 && guildTwo.length === 9){
-            fetchGuildPlayerData([guildOne, guildTwo])
-            .then(players => res.json(players))
-            .catch((err) => {
-                res.status(404).json(err)
-            })
-        }
-        else{
-            res.sendStatus(400)
-        }
-    } else {
+// api/guilds/code1&code2&code3...
+app.get('/api/guilds/:code', (req, res) => {
+
+    const code = req.params.code.split("&");
+    // Every code in the params is of length 9
+    if(code.every((value) => value.length === 9)){
+        fetchGuildPlayerData(code)
+        .then(players => res.json(players))
+        .catch((err) => {
+            res.status(404).json(err)
+        })
+    }
+    else{
         res.sendStatus(400)
     }
 })
