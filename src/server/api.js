@@ -38,8 +38,8 @@ const startService = () => {
 }
 
 // Routes
-app.get('/api', (req, res) => {
-    // If the request has two allycodes
+app.get('/api/guilds', (req, res) => {
+    // If the request has two allycodes 
     if(req.body.codes && req.body.codes.length === 2){
         let [ guildOne, guildTwo ] = req.body.codes;
         // Get rid of any - in the codes
@@ -51,7 +51,7 @@ app.get('/api', (req, res) => {
             fetchGuildPlayerData([guildOne, guildTwo])
             .then(players => res.json(players))
             .catch((err) => {
-                res.sendStatus(404)
+                res.status(404).json(err)
             })
         }
         else{
