@@ -1,3 +1,6 @@
+// Techincally insertion would be faster on small lists than merge, but at the expense of
+// 0.01ms, I'm not bothered
+
 module.exports = (data) => {
     if(data.length <= 1) return data;
     let dataCp = {...data};
