@@ -1,10 +1,56 @@
 @import "~bootstrap/scss/bootstrap";
 
-.App{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
+.App {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  background-color: #eaeff1;
+
+  .nav-input{
+    margin-right: 10px;
+  }
+
+  .body{
+    margin-top: 25px;
     width: 100%;
-    height: auto;
-    scroll-behavior: smooth;
+    margin: 0 auto 0 auto;
+    padding: 25px;
+    max-width: 100ch;
+    background-color: white;
+    color: #686868;
+    
+    .card{
+      border: none;
+    }
+    .card-header{
+
+    }
+    .loading{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      h1{
+        margin-left: 15px;
+      }
+    }
+    h1{
+      font-size: 1.5em;
+    }
+    h3{
+      font-size: 1.2em;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .nav-input{
+      width: 75%;
+      margin-right: 5%;
+    }
+
+    .nav-form {
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+  }
 }
