@@ -31,6 +31,7 @@ const login = () => {
 //@return Promise with array of guild id's
 
 const fetchGuildData = async (codes, count = 0) => {
+    console.log("here");
     return new Promise(async (resolve, reject) => {
         let resultArr = [];
 
@@ -67,18 +68,18 @@ const fetchGuildData = async (codes, count = 0) => {
         }
         else if(warning) {
             console.warn("Warning:", warning, "Done");
-            // Check both results are there
-            if(result[0] && result[1]){
+            // Check if no results are undefined
+            if(!result.some((res) => res === undefined)){
                 fetchGuildData(searchCodes, count + 1)
-                .then((res) => resolve(res))
-                .catch((err) => reject(err));
+                .then((res) => {console.log("Resolve")})
+                .catch((err) => console.log("Reject"));
             }
             else{
-                if(!result[0]) reject(`Guild ${codes[0]} not found`)
-                if(!result[1]) reject(`Guild ${codes[1]} not found`)
+                reject("Guild not found");
             }
         }
         else{
+            console.log("here2");
             result.forEach(res => {
                 //Add the guild id to the result array
                 resultArr.push(res.id);
@@ -97,7 +98,6 @@ const fetchGuildData = async (codes, count = 0) => {
 //Fetches the player data for the guild and updates the cache with the guild info
 const fetchPlayerData = async (allycodes, count = 0, guild) => {
     return new Promise(async (resolve, reject) => {
-
         // Fetched players is set once the guild has been processed and placed in the cache
         // This will only be true if the guild has been processed and is contained in the cache
         if(guild.fetchedPlayers){
@@ -121,7 +121,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         }
         else{
             let playerArr = [];
-            let spookySquads = [];
+            let spookySquads = new Map();
             result.forEach(player => {
 
                 // Add the player to the player cache
@@ -148,7 +148,13 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                 let trackedSquads = getSquads(player.roster, player.name);
                 // If the player has a tracked squad, add it to the array
                 if(trackedSquads.squads.length > 0){
-                    spookySquads.push(trackedSquads)
+                    trackedSquads.squads.forEach(squad => {
+                        // If squads doesn't have the squad in it, add it to an empty object
+                        if(!spookySquads.has(squad.title)) {
+                            spookySquads.set(squad.title, { squads: []});
+                        }
+                        spookySquads.get(squad.title).squads.push({owner: player.name, squad: squad });
+                    })
                 }
                 // Sort the characters by power
                 sortToons(toonArr);
@@ -162,6 +168,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                 // Sort the player array to get the highest gp first
                 sortPlayers(playerArr)
             });
+            console.log(spookySquads);
             guild.fetchedPlayers = true;
             guild.roster = playerArr;
             guild.squads = spookySquads;
@@ -185,13 +192,12 @@ const createPlayerArray = (guildCode) => {
 }
 const processGuild = (guildArr) => {
     return new Promise((resolve, reject) => {
-        let guildOne = createPlayerArray(guildArr[0]);
-        let guildTwo = createPlayerArray(guildArr[1]);
+        let promiseArr = guildArr.map((element) => {
+            let players = createPlayerArray(element);
+            return fetchPlayerData(players.playerArr, 0, players.guild )
+        })
     
-        let fetchOne = fetchPlayerData(guildOne.playerArr, 0, guildOne.guild)
-        let fetchTwo = fetchPlayerData(guildTwo.playerArr, 0, guildTwo.guild)
-    
-        Promise.all([fetchOne, fetchTwo]).then(res => {
+        Promise.all(promiseArr).then(res => {
             resolve(res);
         })
         .catch((err => console.log("err")))
