@@ -34,7 +34,7 @@ const getSquads = (unitsList, name) => {
             }
         })
         if(unitArr.length >= 5){
-            squads.push({title: squad.title, sqaudGp: squadGp, units: unitArr});
+            squads.push({title: squad.title, squadGp: squadGp, units: unitArr});
         }
     })
     return {name, squads}
