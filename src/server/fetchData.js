@@ -121,7 +121,7 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
         }
         else{
             let playerArr = [];
-            let spookySquads = new Map();
+            let spookySquads = [];
             result.forEach(player => {
 
                 // Add the player to the player cache
@@ -150,10 +150,10 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                 if(trackedSquads.squads.length > 0){
                     trackedSquads.squads.forEach(squad => {
                         // If squads doesn't have the squad in it, add it to an empty object
-                        if(!spookySquads.has(squad.title)) {
-                            spookySquads.set(squad.title, { squads: []});
+                        if(!spookySquads.find( item => item.title === squad.title)) {
+                            spookySquads.push({title: squad.title, squads: []});
                         }
-                        spookySquads.get(squad.title).squads.push({owner: player.name, squad: squad });
+                        spookySquads.find( item => item.title === squad.title).squads.push({owner: player.name, squad: squad });
                     })
                 }
                 // Sort the characters by power
