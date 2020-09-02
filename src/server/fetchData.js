@@ -5,6 +5,7 @@ const fs = require('fs');
 const NodeCache = require( "node-cache" );
 const sortToons = require('./fetchData/sortToons');
 const sortPlayers = require('./fetchData/sortPlayers');
+const sortSquads = require('./fetchData/sortSquads');
 const { getSquads } = require('./fetchData/units');
 const MAX_REJECTIONS = 5;
 
@@ -168,10 +169,10 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
                 // Sort the player array to get the highest gp first
                 sortPlayers(playerArr)
             });
-            console.log(spookySquads);
             guild.fetchedPlayers = true;
             guild.roster = playerArr;
-            guild.squads = spookySquads;
+            // Sort the squads by their squadGP
+			guild.squads = spookySquads.map((squad) => sortSquads(squad.squads));
             guildCache.set(guild.id, guild);
             resolve(guild);
         }
