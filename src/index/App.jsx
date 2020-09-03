@@ -6,13 +6,13 @@ import { fetchData } from "./App/data";
 
 const App = () => {
 	// Get the allycodes from the url
-	let params = window.location.pathname;
-	if (params !== "/") {
+	let params = window.location.search.substring(1);
+	if (params !== "") {
 		fetchData(params);
 	}
 	return (
 		<div className="App">
-			<Nav codes={params.substring(1)} />
+			<Nav codes={params.substring()} />
 			<Body/>
 		</div>
 	);

@@ -4,10 +4,9 @@ let callBack;
 // Storing data here, rather than in a state as it's pretty much a global variable
 let data;
 const fetchData = (allyCodes) => {
-	console.log(allyCodes);
 	return new Promise((resolve, reject) => {
 		axios
-			.get("http://localhost:5000/api/guilds" + allyCodes)
+			.get("http://localhost:5000/api/guilds/" + allyCodes)
 			.then((response) => {
 				data = response.data[0];
 				callBack(data);
