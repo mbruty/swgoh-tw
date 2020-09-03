@@ -1,0 +1,737 @@
+{
+  "units": 
+  [
+    {
+      "name": "GENERALSKYWALKER",
+      "side": "lightside"
+    },
+    {
+      "name": "JEDIKNIGHTREVAN",
+      "side": "lightside"
+    },
+    {
+      "name": "REYJEDITRAINING",
+      "side": "lightside"
+    },
+    {
+      "name": "COMMANDERLUKESKYWALKER",
+      "side": "lightside"
+    },
+    {
+      "name": "GRANDMASTERYODA",
+      "side": "lightside"
+    },
+    {
+      "name": "BB8",
+      "side": "lightside"
+    },
+    {
+      "name": "PADMEAMIDALA",
+      "side": "lightside"
+    },
+    {
+      "name": "CT5555",
+      "side": "lightside"
+    },
+    {
+      "name": "CHEWBACCALEGENDARY",
+      "side": "lightside"
+    },
+    {
+      "name": "R2D2_LEGENDARY",
+      "side": "lightside"
+    },
+    {
+      "name": "SHAAKTI",
+      "side": "lightside"
+    },
+    {
+      "name": "C3POLEGENDARY",
+      "side": "lightside"
+    },
+    {
+      "name": "GENERALKENOBI",
+      "side": "lightside"
+    },
+    {
+      "name": "JOLEEBINDO",
+      "side": "lightside"
+    },
+    {
+      "name": "ANAKINKNIGHT",
+      "side": "lightside"
+    },
+    {
+      "name": "EPIXPOE",
+      "side": "lightside"
+    },
+    {
+      "name": "HANSOLO",
+      "side": "lightside"
+    },
+    {
+      "name": "FINN",
+      "side": "lightside"
+    },
+    {
+      "name": "AHSOKATANO",
+      "side": "lightside"
+    },
+    {
+      "name": "REY",
+      "side": "lightside"
+    },
+    {
+      "name": "B1BATTLEDROIDV2",
+      "side": "lightside"
+    },
+    {
+      "name": "CT7567",
+      "side": "lightside"
+    },
+    {
+      "name": "EPIXFINN",
+      "side": "lightside"
+    },
+    {
+      "name": "CT210408",
+      "side": "lightside"
+    },
+    {
+      "name": "MISSIONVAO",
+      "side": "lightside"
+    },
+    {
+      "name": "GLREY",
+      "side": "lightside"
+    },
+    {
+      "name": "ENFYSNEST",
+      "side": "lightside"
+    },
+    {
+      "name": "L3_37",
+      "side": "lightside"
+    },
+    {
+      "name": "ZAALBAR",
+      "side": "lightside"
+    },
+    {
+      "name": "ARCTROOPER501ST",
+      "side": "lightside"
+    },
+    {
+      "name": "JYNERSO",
+      "side": "lightside"
+    },
+    {
+      "name": "EZRABRIDGERS3",
+      "side": "lightside"
+    },
+    {
+      "name": "AMILYNHOLDO",
+      "side": "lightside"
+    },
+    {
+      "name": "SMUGGLERCHEWBACCA",
+      "side": "lightside"
+    },
+    {
+      "name": "CARTHONASI",
+      "side": "lightside"
+    },
+    {
+      "name": "T3_M4",
+      "side": "lightside"
+    },
+    {
+      "name": "POE",
+      "side": "lightside"
+    },
+    {
+      "name": "ROSETICO",
+      "side": "lightside"
+    },
+    {
+      "name": "HERMITYODA",
+      "side": "lightside"
+    },
+    {
+      "name": "CHIEFCHIRPA",
+      "side": "lightside"
+    },
+    {
+      "name": "BARRISSOFFEE",
+      "side": "lightside"
+    },
+    {
+      "name": "BAZEMALBUS",
+      "side": "lightside"
+    },
+    {
+      "name": "JUHANI",
+      "side": "lightside"
+    },
+    {
+      "name": "RESISTANCEPILOT",
+      "side": "lightside"
+    },
+    {
+      "name": "CHIRRUTIMWE",
+      "side": "lightside"
+    },
+    {
+      "name": "CANDEROUSORDO",
+      "side": "lightside"
+    },
+    {
+      "name": "EWOKELDER",
+      "side": "lightside"
+    },
+    {
+      "name": "MACEWINDU",
+      "side": "lightside"
+    },
+    {
+      "name": "ADMIRALACKBAR",
+      "side": "lightside"
+    },
+    {
+      "name": "ADMINISTRATORLANDO",
+      "side": "lightside"
+    },
+    {
+      "name": "LOGRAY",
+      "side": "lightside"
+    },
+    {
+      "name": "STORMTROOPERHAN",
+      "side": "lightside"
+    },
+    {
+      "name": "QUIGONJINN",
+      "side": "lightside"
+    },
+    {
+      "name": "PAPLOO",
+      "side": "lightside"
+    },
+    {
+      "name": "PRINCESSLEIA",
+      "side": "lightside"
+    },
+    {
+      "name": "WICKET",
+      "side": "lightside"
+    },
+    {
+      "name": "CHIEFNEBIT",
+      "side": "lightside"
+    },
+    {
+      "name": "CASSIANANDOR",
+      "side": "lightside"
+    },
+    {
+      "name": "QIRA",
+      "side": "lightside"
+    },
+    {
+      "name": "HOTHHAN",
+      "side": "lightside"
+    },
+    {
+      "name": "JEDIKNIGHTCONSULAR",
+      "side": "lightside"
+    },
+    {
+      "name": "CLONESERGEANTPHASEI",
+      "side": "lightside"
+    },
+    {
+      "name": "EWOKSCOUT",
+      "side": "lightside"
+    },
+    {
+      "name": "SMUGGLERHAN",
+      "side": "lightside"
+    },
+    {
+      "name": "HOTHLEIA",
+      "side": "lightside"
+    },
+    {
+      "name": "HERASYNDULLAS3",
+      "side": "lightside"
+    },
+    {
+      "name": "PLOKOON",
+      "side": "lightside"
+    },
+    {
+      "name": "IMAGUNDI",
+      "side": "lightside"
+    },
+    {
+      "name": "CC2224",
+      "side": "lightside"
+    },
+    {
+      "name": "SABINEWRENS3",
+      "side": "lightside"
+    },
+    {
+      "name": "TEEBO",
+      "side": "lightside"
+    },
+    {
+      "name": "K2SO",
+      "side": "lightside"
+    },
+    {
+      "name": "PAO",
+      "side": "lightside"
+    },
+    {
+      "name": "ZEBS3",
+      "side": "lightside"
+    },
+    {
+      "name": "LUMINARAUNDULI",
+      "side": "lightside"
+    },
+    {
+      "name": "YOUNGCHEWBACCA",
+      "side": "lightside"
+    },
+    {
+      "name": "FULCRUMAHSOKA",
+      "side": "lightside"
+    },
+    {
+      "name": "KANANJARRUSS3",
+      "side": "lightside"
+    },
+    {
+      "name": "YOUNGHAN",
+      "side": "lightside"
+    },
+    {
+      "name": "CHOPPERS3",
+      "side": "lightside"
+    },
+    {
+      "name": "BODHIROOK",
+      "side": "lightside"
+    },
+    {
+      "name": "HOTHREBELSCOUT",
+      "side": "lightside"
+    },
+    {
+      "name": "LUKESKYWALKER",
+      "side": "lightside"
+    },
+    {
+      "name": "BISTAN",
+      "side": "lightside"
+    },
+    {
+      "name": "THEMANDALORIAN",
+      "side": "lightside"
+    },
+    {
+      "name": "GREEFKARGA",
+      "side": "lightside"
+    },
+    {
+      "name": "HOTHREBELSOLDIER",
+      "side": "lightside"
+    },
+    {
+      "name": "CARADUNE",
+      "side": "lightside"
+    },
+    {
+      "name": "MONMOTHMA",
+      "side": "lightside"
+    },
+    {
+      "name": "YOUNGLANDO",
+      "side": "lightside"
+    },
+    {
+      "name": "C3POCHEWBACCA",
+      "side": "lightside"
+    },
+    {
+      "name": "JEDIKNIGHTGUARDIAN",
+      "side": "lightside"
+    },
+    {
+      "name": "UGNAUGHT",
+      "side": "lightside"
+    },
+    {
+      "name": "EETHKOTH",
+      "side": "lightside"
+    },
+    {
+      "name": "LOBOT",
+      "side": "lightside"
+    },
+    {
+      "name": "CORUSCANTUNDERWORLDPOLICE",
+      "side": "lightside"
+    },
+    {
+      "name": "KITFISTO",
+      "side": "lightside"
+    },
+    {
+      "name": "BASTILASHAN",
+      "side": "lightside"
+    },
+    {
+      "name": "AAYLASECURA",
+      "side": "lightside"
+    },
+    {
+      "name": "DARTHREVAN",
+      "side": "darkside"
+    },
+    {
+      "name": "VADER",
+      "side": "darkside"
+    },
+    {
+      "name": "HK47",
+      "side": "darkside"
+    },
+    {
+      "name": "BOSSK",
+      "side": "darkside"
+    },
+    {
+      "name": "DARTHMALAK",
+      "side": "darkside"
+    },
+    {
+      "name": "GRIEVOUS",
+      "side": "darkside"
+    },
+    {
+      "name": "ASAJVENTRESS",
+      "side": "darkside"
+    },
+    {
+      "name": "GEONOSIANBROODALPHA",
+      "side": "darkside"
+    },
+    {
+      "name": "EMPERORPALPATINE",
+      "side": "darkside"
+    },
+    {
+      "name": "DARTHTRAYA",
+      "side": "darkside"
+    },
+    {
+      "name": "MOTHERTALZIN",
+      "side": "darkside"
+    },
+    {
+      "name": "BASTILASHANDARK",
+      "side": "darkside"
+    },
+    {
+      "name": "GRANDADMIRALTHRAWN",
+      "side": "darkside"
+    },
+    {
+      "name": "DARTHSION",
+      "side": "darkside"
+    },
+    {
+      "name": "B1BATTLEDROIDV2",
+      "side": "darkside"
+    },
+    {
+      "name": "B2SUPERBATTLEDROID",
+      "side": "darkside"
+    },
+    {
+      "name": "DARTHNIHILUS",
+      "side": "darkside"
+    },
+    {
+      "name": "COUNTDOOKU",
+      "side": "darkside"
+    },
+    {
+      "name": "KYLORENUNMASKED",
+      "side": "darkside"
+    },
+    {
+      "name": "MAGNAGUARD",
+      "side": "darkside"
+    },
+    {
+      "name": "WAMPA",
+      "side": "darkside"
+    },
+    {
+      "name": "KYLOREN",
+      "side": "darkside"
+    },
+    {
+      "name": "DROIDEKA",
+      "side": "darkside"
+    },
+    {
+      "name": "WATTAMBOR",
+      "side": "darkside"
+    },
+    {
+      "name": "BOBAFETT",
+      "side": "darkside"
+    },
+    {
+      "name": "VEERS",
+      "side": "darkside"
+    },
+    {
+      "name": "PHASMAA",
+      "side": "darkside"
+    },
+    {
+      "name": "DENGAR",
+      "side": "darkside"
+    },
+    {
+      "name": "SUNFAC",
+      "side": "darkside"
+    },
+    {
+      "name": "GEONOSIANSPY",
+      "side": "darkside"
+    },
+    {
+      "name": "GRANDMOFFTARKIN",
+      "side": "darkside"
+    },
+    {
+      "name": "POGGLETHELESSER",
+      "side": "darkside"
+    },
+    {
+      "name": "SITHTROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "NIGHTSISTERZOMBIE",
+      "side": "darkside"
+    },
+    {
+      "name": "GREEDO",
+      "side": "darkside"
+    },
+    {
+      "name": "DAKA",
+      "side": "darkside"
+    },
+    {
+      "name": "NUTEGUNRAY",
+      "side": "darkside"
+    },
+    {
+      "name": "GEONOSIANSOLDIER",
+      "side": "darkside"
+    },
+    {
+      "name": "NIGHTSISTERSPIRIT",
+      "side": "darkside"
+    },
+    {
+      "name": "JAWASCAVENGER",
+      "side": "darkside"
+    },
+    {
+      "name": "COLONELSTARCK",
+      "side": "darkside"
+    },
+    {
+      "name": "FIRSTORDEREXECUTIONER",
+      "side": "darkside"
+    },
+    {
+      "name": "JANGOFETT",
+      "side": "darkside"
+    },
+    {
+      "name": "CADBANE",
+      "side": "darkside"
+    },
+    {
+      "name": "IG88",
+      "side": "darkside"
+    },
+    {
+      "name": "TALIA",
+      "side": "darkside"
+    },
+    {
+      "name": "FIRSTORDEROFFICERMALE",
+      "side": "darkside"
+    },
+    {
+      "name": "TIEFIGHTERPILOT",
+      "side": "darkside"
+    },
+    {
+      "name": "SNOWTROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "CHIEFNEBIT",
+      "side": "darkside"
+    },
+    {
+      "name": "DATHCHA",
+      "side": "darkside"
+    },
+    {
+      "name": "SITHASSASSIN",
+      "side": "darkside"
+    },
+    {
+      "name": "SHORETROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "FIRSTORDERTIEPILOT",
+      "side": "darkside"
+    },
+    {
+      "name": "MAUL",
+      "side": "darkside"
+    },
+    {
+      "name": "DIRECTORKRENNIC",
+      "side": "darkside"
+    },
+    {
+      "name": "JAWAENGINEER",
+      "side": "darkside"
+    },
+    {
+      "name": "ROYALGUARD",
+      "side": "darkside"
+    },
+    {
+      "name": "IMPERIALPROBEDROID",
+      "side": "darkside"
+    },
+    {
+      "name": "FIRSTORDERTROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "JAWA",
+      "side": "darkside"
+    },
+    {
+      "name": "SITHMARAUDER",
+      "side": "darkside"
+    },
+    {
+      "name": "NIGHTSISTERINITIATE",
+      "side": "darkside"
+    },
+    {
+      "name": "DARTHSIDIOUS",
+      "side": "darkside"
+    },
+    {
+      "name": "NIGHTSISTERACOLYTE",
+      "side": "darkside"
+    },
+    {
+      "name": "VISASMARR",
+      "side": "darkside"
+    },
+    {
+      "name": "GENERALHUX",
+      "side": "darkside"
+    },
+    {
+      "name": "FIRSTORDERSPECIALFORCESPILOT",
+      "side": "darkside"
+    },
+    {
+      "name": "GARSAXON",
+      "side": "darkside"
+    },
+    {
+      "name": "IG86SENTINELDROID",
+      "side": "darkside"
+    },
+    {
+      "name": "SAVAGEOPRESS",
+      "side": "darkside"
+    },
+    {
+      "name": "MAGMATROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "ADMIRALPIETT",
+      "side": "darkside"
+    },
+    {
+      "name": "RANGETROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "AURRA_SING",
+      "side": "darkside"
+    },
+    {
+      "name": "FOSITHTROOPER",
+      "side": "darkside"
+    },
+    {
+      "name": "IMPERIALSUPERCOMMANDO",
+      "side": "darkside"
+    },
+    {
+      "name": "EMBO",
+      "side": "darkside"
+    },
+    {
+      "name": "HUMANTHUG",
+      "side": "darkside"
+    },
+    {
+      "name": "TUSKENRAIDER",
+      "side": "darkside"
+    },
+    {
+      "name": "URORRURRR",
+      "side": "darkside"
+    },
+    {
+      "name": "TUSKENSHAMAN",
+      "side": "darkside"
+    },
+    {
+      "name": "ZAMWESELL",
+      "side": "darkside"
+    },
+    {
+      "name": "DEATHTROOPER",
+      "side": "darkside"
+    }
+  ]
+}

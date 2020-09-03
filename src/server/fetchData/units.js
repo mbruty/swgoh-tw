@@ -2,6 +2,20 @@ const fs = require('fs');
 
 let squadData = JSON.parse(fs.readFileSync('./server/fetchData/units/squads.json'));
 
+// Loading this on boot so that lookups are O(1);
+let sideMap = new Map();
+let sideData = JSON.parse(fs.readFileSync('./server/fetchData/units/units.json'));
+sideData.units.forEach(item => {
+    sideMap.set(item.name, {side: item.side})
+});
+
+const getSide = (name) => {
+    let side = sideMap.get(name);
+    if(side) return side.side;
+    console.log(name);
+    return null;
+}
+
 const getSquads = (unitsList, name) => {
     const unitsMap = new Map();
     const squads = [];
@@ -29,7 +43,8 @@ const getSquads = (unitsList, name) => {
                     gear: playerUnit.gear,
                     gp: playerUnit.gp,
                     relic: playerUnit.relic,
-                    zetas: zetas
+                    zetas: zetas,
+                    side: getSide(playerUnit.defId)
                 });
             }
         })
