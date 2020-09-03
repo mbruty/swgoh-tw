@@ -1,50 +1,260 @@
 [
+	{
+		"title": "501st",
+		"units": [
+			"GENERALSKYWALKER",
+			"CT5555",
+			"ARCTROOPER501ST",
+			"CT210408",
+			"CT7567"
+		]
+	},
+	{
+		"title": "Bounty Hunters",
+		"units": [
+			"BOSSK",
+			"BOBAFETT",
+			"JANGOFETT",
+			"DENGAR",
+			"ZAMWESELL",
+			"GREEDO",
+			"CADBANE",
+			"THEMANDALORIAN",
+			"GREEFKARGA"
+		]
+	},
+	{
+		"title": "Clones",
+		"units": [
+			"SHAAKTI",
+			"CT5555",
+			"ARCTROOPER501ST",
+			"CT210408",
+			"CT7567",
+			"CC2224",
+			"AHSOKATANO",
+			"CLONESERGEANTPHASEI",
+			"BARRISSOFFEE"
+		]
+	},
+	{
+		"title": "Empire",
+		"units": [
+			"EMPERORPALPATINE",
+			"VADER",
+			"IMPERIALPROBEDROID",
+			"GRANDMOFFTARKIN",
+			"DEATHTROOPER",
+			"DIRECTORKRENNIC",
+			"COUNTDOOKU"
+		]
+	},
+	{
+		"title": "First Order",
+		"units": [
+			"KYLOREN",
+			"KYLORENUNMASKED",
+			"FIRSTORDEREXECUTIONER",
+			"FIRSTORDEROFFICERMALE",
+			"FIRSTORDERTROOPER",
+			"FIRSTORDERTIEPILOT",
+			"GENERALHUX",
+			"PHASMAA",
+			"SITHTROOPER"
+		]
+	},
+	{
+		"title": "GL First Order",
+		"units": [
+			"SUPREMELEADERKYLOREN",
+			"KYLOREN",
+			"SITHTROOPER",
+			"GENERALHUX",
+			"FIRSTORDEROFFICERMALE"
+		]
+    },
     {
-        "title": "501st",
+        "title": "Resistance",
         "units": [
-            "GENERALSKYWALKER",
-            "CT5555",
-            "ARCTROOPER501ST",
-            "CT210408",
-            "CT7567"
+            "REYJEDITRAINING",
+            "REY",
+            "BB8",
+            "FINN",
+            "RESISTANCETROOPER",
+            "GENERALKENOBI"
         ]
-    },{
-        "title": "Bounty Hunters",
+    },
+    {
+        "title": "GL Resistance",
         "units": [
-            "BOSSK",
+            "GLREY",
+            "REY",
+            "REYJEDITRAINING",
+            "L3_37",
+            "EPIXPOE",
+            "EPIXFINN",
+            "GENERALKENOBI",
+            "WATTAMBOR",
+            "DARTHMALAK"
+        ]
+    },
+	{
+		"title": "Galactic Republic",
+		"units": [
+			"PADMEAMIDALA",
+			"AHSOKATANO",
+			"ANAKINKNIGHT",
+			"GENERALKENOBI",
+			"BARRISSOFFEE",
+			"GRANDMASTERYODA",
+			"CLONEWARSCHEWBACCA"
+		]
+	},
+	{
+		"title": "Geonosians",
+		"units": [
+			"GEONOSIANBROODALPHA",
+			"SUNFAC",
+			"GEONOSIANSPY",
+			"GEONOSIANSOLDIER",
+			"POGGLETHELESSER"
+		]
+	},
+	{
+		"title": "Imperial Troopers",
+		"units": [
+			"VEERS",
+			"COLONELSTARCK",
+			"RANGETROOPER",
+			"SNOWTROOPER",
+			"DEATHTROOPER"
+		]
+    },
+    {
+        "title": "Jedi",
+        "units": [
+            "JEDIKNIGHTREVAN",
+            "JOLEEBINDO",
+            "GRANDMASTERYODA",
+            "GENERALKENOBI",
+            "BASTILASHAN",
+            "EZRABRIDGERS3",
+            "HERMITYODA",
+            "OLDBENKENOBI",
+            "HERMITYODA"
+        ]
+    },
+    {
+        "title": "Nightsisters",
+        "units": [
+            "MOTHERTALZIN",
+            "ASAJVENTRESS",
+            "DAKA",
+            "NIGHTSISTERZOMBIE",
+            "NIGHTSISTERSPIRIT",
+            "NIGHTSISTERACOLYTE",
+            "TALIA"
+        ]
+    },
+    {
+        "title": "Phoenix",
+        "units": [
+            "HERASYNDULLAS3",
+            "KANANJARRUSS3",
+            "ZEBS3",
+            "EZRABRIDGERS3",
+            "SABINEWRENS3",
+            "CHOPPERS3"
+        ]
+    },
+    {
+        "title": "Old Republic",
+        "units": [
+            "CARTHONASI",
+            "CANDEROUSORDO",
+            "MISSIONVAO",
+            "ZAALBAR",
+            "JUHANI",
+            "T3_M4"
+        ]
+    },
+    {
+        "title": "CLS",
+        "units": [
+            "COMMANDERLUKESKYWALKER",
+            "HANSOLO",
+            "CHEWBACCALEGENDARY",
+            "R2D2_LEGENDARY",
+            "C3POLEGENDARY",
+            "C3POCHEWBACCA"
+        ]
+    },
+    {
+        "title": "GG Droids",
+        "units": [
+            "GRIEVOUS",
+            "B2SUPERBATTLEDROID",
+            "B1BATTLEDROIDV2",
+            "DROIDEKA",
+            "MAGNAGUARD",
+            "BB8",
+            "WATTAMBOR"
+        ]
+    },
+    {
+        "title": "Separatists",
+        "units": [
+            "NUTEGUNRAY",
+            "WATTAMBOR",
+            "COUNTDOOKU",
+            "ENFYSNEST",
             "BOBAFETT",
             "JANGOFETT",
-            "DENGAR",
-            "ZAMWESELL",
-            "GREEDO",
-            "CADBANE",
-            "THEMANDALORIAN",
-            "GREEFKARGA"
+            "DROIDEKA"
         ]
-    },{
-        "title": "Clones",
+    },
+    {
+        "title": "Sith Empire",
         "units": [
-            "SHAAKTI",
-            "CT5555",
-            "ARCTROOPER501ST",
-            "CT210408",
-            "CT7567",
-            "CC2224",
-            "CLONESERGEANTPHASEI",
-            "BARRISSOFFEE",
-            "AHSOKATANO"
+            "DARTHREVAN",
+            "DARTHMALAK",
+            "BASTILASHANDARK",
+            "HK47",
+            "SITHTROOPER",
+            "SITHASSASSIN",
+            "SITHMARAUDER"
         ]
-    },{
-        "title": "Empire",
+    },
+    {
+        "title": "Sith Trimvirate",
         "units": [
-            "EMPERORPALPATINE",
+            "DARTHTRAYA",
+            "DARTHSION",
+            "DARTHNIHILUS",
+            "BASTILASHANDARK",
+            "SITHTROOPER",
+            "GRANDADMIRALTHRAWN"
+        ]
+    },
+    {
+        "title": "Rey Killer 1",
+        "units": [
+            "JEDIKNIGHTREVAN",
+            "BASTILASHAN",
+            "GENERALSKYWALKER",
+            "HERMITYODA",
+            "GRANDADMIRALTHRAWN"
+        ]
+    },
+    {
+        "title": "Rey Killer 2",
+        "units": [
+            "GRANDADMIRALTHRAWN",
             "VADER",
-            "IMPERIALPROBEDROID",
-            "GRANDMOFFTARKIN",
-            "TIEFIGHTERIMPERIAL",
-            "DEATHTROOPER",
-            "DIRECTORKRENNIC",
-            "COUNTDOOKU"
+            "WATTAMBOR",
+            "DARTHTRAYA",
+            "SHORETROOPER",
+            "IMPERIALPROBEDROID"
         ]
     }
 ]
