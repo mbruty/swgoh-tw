@@ -2,7 +2,6 @@ import React from "react";
 
 const showSquad = (props) => {
 	if (props.data !== {}) {
-		console.log(props.data.squad.units.length);
 		return (
 			<tr
 				class="squad"
@@ -20,7 +19,6 @@ const showSquad = (props) => {
 								height="80"
 								width="80"
 							/>
-							{console.log(unit)}
 							<div
 								className={` ${
 									unit.relic.currentTier > 1
