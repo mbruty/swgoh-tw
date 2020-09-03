@@ -8,7 +8,6 @@ const NavForm = (props) => {
 	return (
 		<Formik
 			validate={(values) => {
-				console.log("values");
 				const errors = {};
 				if (!values.allyCode) {
 					errors.allyCode = "Allycode is required";
@@ -23,7 +22,6 @@ const NavForm = (props) => {
 			}}
 			onSubmit={(data, { setSubmitting }) => {
 				setSubmitting(true);
-				console.log(data);
 				fetchData("/" + data.allyCode)
 				.then(() => setSubmitting(false));
 			}}

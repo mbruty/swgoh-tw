@@ -32,7 +32,6 @@ const login = () => {
 //@return Promise with array of guild id's
 
 const fetchGuildData = async (codes, count = 0) => {
-	console.log("here");
 	return new Promise(async (resolve, reject) => {
 		let resultArr = [];
 
@@ -78,7 +77,6 @@ const fetchGuildData = async (codes, count = 0) => {
 				reject("Guild not found");
 			}
 		} else {
-			console.log("here2");
 			result.forEach((res) => {
 				//Add the guild id to the result array
 				resultArr.push(res.id);

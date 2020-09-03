@@ -9,7 +9,6 @@ const Body = (props) => {
     registerCallBack((data) => { setData(data)})
     // Display the data if we have it
     if(data) {
-        console.log(data);
         return (
             <div class="body">
                 <h1>Guild Data: {data.name}</h1>

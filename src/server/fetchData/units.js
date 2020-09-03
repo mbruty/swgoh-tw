@@ -12,7 +12,6 @@ sideData.units.forEach(item => {
 const getSide = (name) => {
     let side = sideMap.get(name);
     if(side) return side.side;
-    console.log(name);
     return null;
 }
 
