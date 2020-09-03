@@ -22,7 +22,7 @@ const NavForm = (props) => {
 			}}
 			onSubmit={(data, { setSubmitting }) => {
 				setSubmitting(true);
-				fetchData("/" + data.allyCode)
+				fetchData(data.allyCode)
 				.then(() => setSubmitting(false));
 			}}
 			initialValues={{ allyCode: props.codes }}
