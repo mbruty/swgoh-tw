@@ -1,56 +1,240 @@
 @import "~bootstrap/scss/bootstrap";
 
 .App {
-  width: 100%;
-  height: auto;
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  background-color: #eaeff1;
+	width: 100%;
+	height: auto;
+	min-height: 100vh;
+	scroll-behavior: smooth;
+	background-color: #eaeff1;
 
-  .nav-input{
-    margin-right: 10px;
-  }
+	.nav-input {
+		margin-right: 10px;
+	}
 
-  .body{
-    margin-top: 25px;
-    width: 100%;
-    margin: 0 auto 0 auto;
-    padding: 25px;
-    max-width: 100ch;
-    background-color: white;
-    color: #686868;
-    
-    .card{
-      border: none;
-    }
-    .card-header{
+	.body {
+		margin-top: 25px;
+		width: 100%;
+		margin: 0 auto 0 auto;
+		padding: 25px;
+		max-width: 100ch;
+		background-color: white;
+		color: #686868;
 
-    }
-    .loading{
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      h1{
-        margin-left: 15px;
-      }
-    }
-    h1{
-      font-size: 1.5em;
-    }
-    h3{
-      font-size: 1.2em;
-    }
-  }
+		.card {
+			border: none;
+		}
+		.loading {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: center;
+			h1 {
+				margin-left: 15px;
+			}
+		}
+		h1 {
+			font-size: 1.5em;
+		}
+		h3 {
+			font-size: 1.2em;
+		}
+		h4 {
+			font-size: 1em;
+		}
+		tr.squad {
+			display: flex;
+			flex-flow: row wrap;
+			margin-top: 15px;
+      margin-bottom: 15px;
+      transform: translateX(35px);
+			.row:before {
+				content: "";
+				display: table;
+			}
 
-  @media only screen and (max-width: 500px) {
-    .nav-input{
-      width: 75%;
-      margin-right: 5%;
-    }
+			.char {
+				position: relative;
+				width: 84px;
+				height: 84px;
+				border-radius: 50%;
+			}
 
-    .nav-form {
-      margin-top: 5%;
-      margin-bottom: 5%;
-    }
-  }
+			#toon {
+        margin-right: 15px;
+        margin-bottom: 15px;
+			}
+
+			.char-portrait-no-relic {
+				position: absolute;
+				width: 84px;
+				height: 84px;
+				z-index: 2;
+				top: 0;
+				left: 15px;
+			}
+			.char-portrait-relic {
+				position: absolute;
+				background-image: url(https://swgoh.gg/static/img/ui/g13-frame-atlas.png);
+				width: 105px;
+				height: 98px;
+				background-size: 100%;
+				left: 50%;
+				top: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				background-image: url(https://swgoh.gg/static/img/ui/g13-frame-atlas.png);
+			}
+			.lightside {
+				background-position: 0 0;
+			}
+			.darkside {
+				background-position: 0 -100%;
+			}
+			.g12 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g12.svg);
+			}
+			.g11 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g11.svg);
+			}
+			.g10 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g10.svg);
+			}
+			.g9 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g9.svg);
+			}
+			.g8 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g8.svg);
+			}
+			.g7 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g7.svg);
+			}
+			.g6 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g6.svg);
+			}
+			.g5 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g5.svg);
+			}
+			.g4 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g4.svg);
+			}
+			.g3 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g3.svg);
+			}
+			.g2 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g2.svg);
+			}
+			.g1 {
+				background-image: url(https://swgoh.gg/static/img/ui/gear-icon-g1.svg);
+			}
+			.star {
+				position: absolute;
+				bottom: 50%;
+				left: 50%;
+				width: 15px;
+				height: 55px;
+				color: #000;
+				-webkit-transform-origin: center bottom;
+				transform-origin: center bottom;
+				background: center 0 transparent
+					url(https://swgoh.gg/static/img/star.png) no-repeat;
+				background-size: 100%;
+				z-index: 2;
+			}
+			.inactive {
+				background-image: url(https://swgoh.gg/static/img/star-inactive.png);
+			}
+			.star1 {
+				-webkit-transform: translateX(-50%) rotate(-60deg);
+				transform: translateX(-50%) rotate(-60deg);
+			}
+			.star2 {
+				-webkit-transform: translateX(-50%) rotate(-40deg);
+				transform: translateX(-50%) rotate(-40deg);
+			}
+			.star3 {
+				-webkit-transform: translateX(-50%) rotate(-20deg);
+				transform: translateX(-50%) rotate(-20deg);
+			}
+			.star4 {
+				-webkit-transform: translateX(-50%) rotate(0deg);
+				transform: translateX(-50%) rotate(0deg);
+			}
+			.star5 {
+				-webkit-transform: translateX(-50%) rotate(20deg);
+				transform: translateX(-50%) rotate(20deg);
+			}
+			.star6 {
+				-webkit-transform: translateX(-50%) rotate(40deg);
+				transform: translateX(-50%) rotate(40deg);
+			}
+			.star7 {
+				-webkit-transform: translateX(-50%) rotate(60deg);
+				transform: translateX(-50%) rotate(60deg);
+			}
+			.zeta {
+				background: 50% transparent
+					url(https://swgoh.gg/static/img/assets/tex.skill_zeta_glow.png)
+					no-repeat;
+				background-size: contain;
+				width: 50px;
+				height: 40px;
+				top: 48px;
+				left: -17px;
+				line-height: 40px;
+				text-shadow: -1px -1px 0 #7028c9, 2px -1px 0 #7028c9, 2px 2px 0 #7028c9,
+					-1px 2px 0 #7028c9, 2px 3px 0 #7028c9, 1px 3px 0 #7028c9,
+					2px 3px 0 #7028c9;
+			}
+			.relic {
+				background-image: url(https://swgoh.gg/static/img/ui/relic-badge-atlas.png);
+				background-size: 100%;
+				width: 44px;
+				height: 44px;
+				top: 44px;
+				right: -13px;
+				line-height: 43px;
+				text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, 2px 2px 0 #000,
+					-1px 2px 0 #000, 2px 3px 0 #000, 1px 3px 0 #000, 2px 3px 0 #000;
+			}
+			.zeta,
+			.relic {
+				position: absolute;
+				z-index: 4;
+				color: #fff;
+				text-align: center;
+				font-size: 13px;
+				font-weight: 700;
+			}
+			.level {
+				position: absolute;
+				bottom: 0px;
+				left: 50%;
+				z-index: 4;
+				width: 35px;
+				padding: 0 5px;
+				-webkit-transform: translate(-50%);
+				transform: translate(-50%);
+				color: #fff;
+				font-weight: 700;
+				background-color: #264257;
+				border: 2px solid #fff;
+				text-align: center;
+				border-radius: 100%/130% 130% 15px 15px;
+				box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+				text-shadow: -1px -1px 0 #000, 2px -1px 0 #000, 2px 2px 0 #000,
+					-1px 2px 0 #000, 2px 3px 0 #000, 1px 3px 0 #000, 2px 3px 0 #000;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 500px) {
+		.nav-input {
+			width: 75%;
+			margin-right: 5%;
+		}
+
+		.nav-form {
+			margin-top: 5%;
+			margin-bottom: 5%;
+		}
+	}
 }
