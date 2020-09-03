@@ -3,6 +3,7 @@ import { registerCallBack } from "./data";
 import { Spinner, Accordion } from "react-bootstrap";
 import GuildInfo from './Body/GuildInfo'
 import MemberInfo from './Body/MemberInfo'
+import Squads from './Body/Squads';
 const Body = (props) => {
     const [data, setData] = useState();
     registerCallBack((data) => { setData(data)})
@@ -16,6 +17,7 @@ const Body = (props) => {
                 <Accordion>
                     <GuildInfo/>
                     <MemberInfo />
+                    <Squads />
                 </Accordion>
             </div>
         );
