@@ -732,6 +732,10 @@
     {
       "name": "DEATHTROOPER",
       "side": "darkside"
+    },
+    {
+      "name": "SUPREMELEADERKYLOREN",
+      "side": "darkside"
     }
   ]
 }
