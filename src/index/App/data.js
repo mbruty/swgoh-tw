@@ -32,7 +32,12 @@ const getMemberData = () => {
 	return {gp: data.gp, members: data.members}
 }
 
+const getSquads = () => {
+	return data.squads;
+}
+
 module.exports = {
+	getSquads: getSquads,
 	getMemberData: getMemberData,
 	registerCallBack: registerCallBack,
 	fetchData: fetchData,
