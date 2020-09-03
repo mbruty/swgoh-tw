@@ -32,7 +32,12 @@ const getSquads = (unitsList, name) => {
             // Undefined is fasly
             if(playerUnit){
                 // Select the zeta's on the unit
-                let zetas = playerUnit.skills.filter((skill) => skill.isZeta);
+                let zCount = 0;
+                playerUnit.skills.forEach(skill => {
+                    if(skill.tier === skill.tiers && skill.isZeta){
+                        zCount++;
+                    }
+                })
                 squadGp += playerUnit.gp;
                 // Get the stats we want to track from the unit
                 unitArr.push({
@@ -42,7 +47,7 @@ const getSquads = (unitsList, name) => {
                     gear: playerUnit.gear,
                     gp: playerUnit.gp,
                     relic: playerUnit.relic,
-                    zetas: zetas,
+                    zetas: zCount,
                     side: getSide(playerUnit.defId)
                 });
             }
