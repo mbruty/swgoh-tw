@@ -1,6 +1,16 @@
 import React from "react";
 import TableRow from "@material-ui/core/TableRow";
+import { makeStyles } from "@material-ui/core/styles";
+import Tooltip from "@material-ui/core/Tooltip";
+
+const styles = makeStyles((theme) => ({
+	toolTip: {
+		whiteSpace: "pre-line",
+	},
+}));
+
 const showSquad = (props) => {
+
 	if (props.data !== {}) {
 		return (
 			<TableRow
@@ -47,15 +57,29 @@ const showSquad = (props) => {
 							<div
 								className={`star star7 ${unit.rarity >= 7 ? null : "inactive"}`}
 							/>
-							{unit.zetas > 0 ? <div className="zeta" >{unit.zetas}</div> : null}
-              {unit.relic.currentTier > 1 ? <div className={`relic ${unit.side}`}>{unit.relic.currentTier - 2}</div> : null}
-              <div className="level">{unit.level}</div>
+							{unit.zetas.length > 0 ? <Zeta zetas={unit.zetas} /> : null}
+							{unit.relic.currentTier > 1 ? (
+								<div className={`relic ${unit.side}`}>
+									{unit.relic.currentTier - 2}
+								</div>
+							) : null}
+							<div className="level">{unit.level}</div>
 						</div>
 					))}
 				</div>
 			</TableRow>
 		);
 	} else return null;
+};
+
+const Zeta = (props) => {
+	const classes = styles();
+	let title = props.zetas.reduce((acc, zeta) => acc + `\n` + zeta)
+	return (
+		<Tooltip classes={{ tooltip: classes.toolTip }} title={title} placement="bottom" arrow>
+			<div className="zeta">{props.zetas.length}</div>
+		</Tooltip>
+	);
 };
 
 export default showSquad;
