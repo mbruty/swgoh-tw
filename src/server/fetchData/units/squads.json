@@ -3,10 +3,10 @@
 		"title": "501st",
 		"units": [
 			"GENERALSKYWALKER",
-			"CT5555",
 			"ARCTROOPER501ST",
 			"CT210408",
-			"CT7567"
+			"CT7567",
+			"CT5555"
 		]
 	},
 	{
@@ -27,14 +27,14 @@
 		"title": "Clones",
 		"units": [
 			"SHAAKTI",
-			"CT5555",
 			"ARCTROOPER501ST",
 			"CT210408",
 			"CT7567",
 			"CC2224",
 			"AHSOKATANO",
 			"CLONESERGEANTPHASEI",
-			"BARRISSOFFEE"
+			"BARRISSOFFEE",
+			"CT5555"
 		]
 	},
 	{
@@ -46,7 +46,8 @@
 			"GRANDMOFFTARKIN",
 			"DEATHTROOPER",
 			"DIRECTORKRENNIC",
-			"COUNTDOOKU"
+            "COUNTDOOKU",
+            "GRANDADMIRALTHRAWN"
 		]
 	},
 	{
@@ -130,7 +131,11 @@
 			"COLONELSTARCK",
 			"RANGETROOPER",
 			"SNOWTROOPER",
-			"DEATHTROOPER"
+            "DEATHTROOPER",
+            "ADMIRALPIETT",
+            "SHORETROOPER",
+            "MAGMATROOPER",
+            "STORMTROOPER"
 		]
 	},
 	{
