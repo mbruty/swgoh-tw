@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 var cors = require("cors");
-const path = require('path');
+const path = require("path");
 var bodyParser = require("body-parser");
 const { fetchGuildPlayerData } = require("./fetchData");
 
@@ -30,9 +30,9 @@ app.use(cors(corsOptions));
 const startService = () => {
 	return new Promise((resolve, reject) => {
 		try {
-			console.log(path.join(__dirname, '../../build'));
+			console.log(path.join(__dirname, "../../build"));
 			const port = process.env.PORT || 5000;
-			app.use(express.static(path.join(__dirname, '../../build')));
+			app.use(express.static(path.join(__dirname, "../../build")));
 			app.listen(port);
 			console.log("App is listening on port " + port);
 		} catch (err) {
@@ -41,7 +41,6 @@ const startService = () => {
 		resolve();
 	});
 };
-
 
 // Routes
 
@@ -60,6 +59,5 @@ app.get("/api/guilds/:code", (req, res) => {
 		res.sendStatus(400);
 	}
 });
-
 
 module.exports = startService;

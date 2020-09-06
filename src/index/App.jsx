@@ -1,7 +1,7 @@
 import React from "react";
 import "./App/App.scss";
 import Nav from "./App/Nav";
-import Body from './App/Body'
+import Body from "./App/Body";
 import { fetchData } from "./App/data";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<Nav codes={params.substring()} />
-			<Body/>
+			<Body />
 		</div>
 	);
 };
