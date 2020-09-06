@@ -1,9 +1,9 @@
 import React from "react";
-
+import TableRow from "@material-ui/core/TableRow";
 const showSquad = (props) => {
 	if (props.data !== {}) {
 		return (
-			<tr
+			<TableRow
 				class="squad"
 				style={{
 					height: `${props.data.squad.units.length > 5 ? "200px" : "100px"}`,
@@ -53,7 +53,7 @@ const showSquad = (props) => {
 						</div>
 					))}
 				</div>
-			</tr>
+			</TableRow>
 		);
 	} else return null;
 };
