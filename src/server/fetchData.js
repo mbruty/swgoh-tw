@@ -3,6 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 //Create the cache and set the time to live to 6 hours
 const NodeCache = require("node-cache");
+const sortGuildSquads = require("./fetchData/sortGuildSquads");
 const sortToons = require("./fetchData/sortToons");
 const sortPlayers = require("./fetchData/sortPlayers");
 const sortSquads = require("./fetchData/sortSquads");
@@ -32,6 +33,7 @@ const login = () => {
 //@return Promise with array of guild id's
 
 const fetchGuildData = async (codes, count = 0) => {
+	console.log("Fetch guild");
 	return new Promise(async (resolve, reject) => {
 		let resultArr = [];
 
@@ -69,10 +71,12 @@ const fetchGuildData = async (codes, count = 0) => {
 			console.warn("Warning:", warning, "Done");
 			// Check if no results are undefined
 			if (!result.some((res) => res === undefined)) {
-				let retry = await fetchGuildData(searchCodes, count + 1)
+				let retry = fetchGuildData(searchCodes, count + 1)
 				.catch((err) => console.log("Reject"));
-				console.log("Resolve");
-				resolve(retry);
+				Promise.all([retry]).then((res) => {
+					console.log(retry);
+					resolve(res);
+				})
 			} else {
 				reject("Guild not found");
 			}
@@ -179,6 +183,8 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
 			// Sort the squads by their squadGP
 
 			guild.squads = spookySquads.map((squad) => sortSquads(squad.squads));
+			// Lexical sorting of squads
+			guild.squads = sortGuildSquads(guild.squads);
 			guildCache.set(guild.id, guild);
 			resolve(guild);
 		}
