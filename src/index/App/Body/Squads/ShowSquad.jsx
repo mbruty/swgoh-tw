@@ -48,7 +48,7 @@ const showSquad = (props) => {
 								className={`star star7 ${unit.rarity >= 7 ? null : "inactive"}`}
 							/>
 							{unit.zetas > 0 ? <div className="zeta" >{unit.zetas}</div> : null}
-              {unit.relic.currentTier > 1 ? <div className="relic">{unit.relic.currentTier - 2}</div> : null}
+              {unit.relic.currentTier > 1 ? <div className={`relic ${unit.side}`}>{unit.relic.currentTier - 2}</div> : null}
               <div className="level">{unit.level}</div>
 						</div>
 					))}
