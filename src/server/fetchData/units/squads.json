@@ -71,33 +71,35 @@
 			"SITHTROOPER",
 			"GENERALHUX",
 			"FIRSTORDEROFFICERMALE"
+		],
+		"required": ["SUPREMELEADERKYLOREN"]
+	},
+	{
+		"title": "Resistance",
+		"units": [
+			"REYJEDITRAINING",
+			"REY",
+			"BB8",
+			"FINN",
+			"RESISTANCETROOPER",
+			"GENERALKENOBI"
 		]
-    },
-    {
-        "title": "Resistance",
-        "units": [
-            "REYJEDITRAINING",
-            "REY",
-            "BB8",
-            "FINN",
-            "RESISTANCETROOPER",
-            "GENERALKENOBI"
-        ]
-    },
-    {
-        "title": "GL Resistance",
-        "units": [
-            "GLREY",
-            "REY",
-            "REYJEDITRAINING",
-            "L3_37",
-            "EPIXPOE",
-            "EPIXFINN",
-            "GENERALKENOBI",
-            "WATTAMBOR",
-            "DARTHMALAK"
-        ]
-    },
+	},
+	{
+		"title": "GL Resistance",
+		"units": [
+			"GLREY",
+			"REY",
+			"REYJEDITRAINING",
+			"L3_37",
+			"EPIXPOE",
+			"EPIXFINN",
+			"GENERALKENOBI",
+			"WATTAMBOR",
+			"DARTHMALAK"
+		],
+		"required": ["GLREY"]
+	},
 	{
 		"title": "Galactic Republic",
 		"units": [
@@ -108,7 +110,8 @@
 			"BARRISSOFFEE",
 			"GRANDMASTERYODA",
 			"CLONEWARSCHEWBACCA"
-		]
+		],
+		"required": ["PADMEAMIDALA"]
 	},
 	{
 		"title": "Geonosians",
@@ -129,132 +132,136 @@
 			"SNOWTROOPER",
 			"DEATHTROOPER"
 		]
-    },
-    {
-        "title": "Jedi",
-        "units": [
-            "JEDIKNIGHTREVAN",
-            "JOLEEBINDO",
-            "GRANDMASTERYODA",
-            "GENERALKENOBI",
-            "BASTILASHAN",
-            "EZRABRIDGERS3",
-            "HERMITYODA",
-            "OLDBENKENOBI",
-            "HERMITYODA"
-        ]
-    },
-    {
-        "title": "Nightsisters",
-        "units": [
-            "MOTHERTALZIN",
-            "ASAJVENTRESS",
-            "DAKA",
-            "NIGHTSISTERZOMBIE",
-            "NIGHTSISTERSPIRIT",
-            "NIGHTSISTERACOLYTE",
-            "TALIA"
-        ]
-    },
-    {
-        "title": "Phoenix",
-        "units": [
-            "HERASYNDULLAS3",
-            "KANANJARRUSS3",
-            "ZEBS3",
-            "EZRABRIDGERS3",
-            "SABINEWRENS3",
-            "CHOPPERS3"
-        ]
-    },
-    {
-        "title": "Old Republic",
-        "units": [
-            "CARTHONASI",
-            "CANDEROUSORDO",
-            "MISSIONVAO",
-            "ZAALBAR",
-            "JUHANI",
-            "T3_M4"
-        ]
-    },
-    {
-        "title": "CLS",
-        "units": [
-            "COMMANDERLUKESKYWALKER",
-            "HANSOLO",
-            "CHEWBACCALEGENDARY",
-            "R2D2_LEGENDARY",
-            "C3POLEGENDARY",
-            "C3POCHEWBACCA"
-        ]
-    },
-    {
-        "title": "GG Droids",
-        "units": [
-            "GRIEVOUS",
-            "B2SUPERBATTLEDROID",
-            "B1BATTLEDROIDV2",
-            "DROIDEKA",
-            "MAGNAGUARD",
-            "BB8",
-            "WATTAMBOR"
-        ]
-    },
-    {
-        "title": "Separatists",
-        "units": [
-            "NUTEGUNRAY",
-            "WATTAMBOR",
-            "COUNTDOOKU",
-            "ENFYSNEST",
-            "BOBAFETT",
-            "JANGOFETT",
-            "DROIDEKA"
-        ]
-    },
-    {
-        "title": "Sith Empire",
-        "units": [
-            "DARTHREVAN",
-            "DARTHMALAK",
-            "BASTILASHANDARK",
-            "HK47",
-            "SITHTROOPER",
-            "SITHASSASSIN",
-            "SITHMARAUDER"
-        ]
-    },
-    {
-        "title": "Sith Triumvirate",
-        "units": [
-            "DARTHTRAYA",
-            "DARTHSION",
-            "DARTHNIHILUS",
-            "BASTILASHANDARK",
-            "SITHTROOPER",
-            "GRANDADMIRALTHRAWN"
-        ]
-    },
-    {
-        "title": "Rey Killer 1",
-        "units": [
-            "JEDIKNIGHTREVAN",
-            "BASTILASHAN",
-            "GENERALSKYWALKER",
-            "HERMITYODA",
-            "GRANDADMIRALTHRAWN"
-        ]
-    },
-    {
-        "title": "Rey Killer 2",
-        "units": [
-            "GRANDADMIRALTHRAWN",
-            "VADER",
-            "WATTAMBOR",
-            "DARTHTRAYA",
-            "SHORETROOPER",
-            "IMPERIALPROBEDROID"
-        ]
-    }
+	},
+	{
+		"title": "Jedi",
+		"units": [
+			"JEDIKNIGHTREVAN",
+			"JOLEEBINDO",
+			"GRANDMASTERYODA",
+			"GENERALKENOBI",
+			"BASTILASHAN",
+			"EZRABRIDGERS3",
+			"HERMITYODA",
+			"OLDBENKENOBI",
+			"HERMITYODA"
+		]
+	},
+	{
+		"title": "Nightsisters",
+		"units": [
+			"MOTHERTALZIN",
+			"ASAJVENTRESS",
+			"DAKA",
+			"NIGHTSISTERZOMBIE",
+			"NIGHTSISTERSPIRIT",
+			"NIGHTSISTERACOLYTE",
+			"TALIA"
+		]
+	},
+	{
+		"title": "Phoenix",
+		"units": [
+			"HERASYNDULLAS3",
+			"KANANJARRUSS3",
+			"ZEBS3",
+			"EZRABRIDGERS3",
+			"SABINEWRENS3",
+			"CHOPPERS3"
+		]
+	},
+	{
+		"title": "Old Republic",
+		"units": [
+			"CARTHONASI",
+			"CANDEROUSORDO",
+			"MISSIONVAO",
+			"ZAALBAR",
+			"JUHANI",
+			"T3_M4"
+		]
+	},
+	{
+		"title": "CLS",
+		"units": [
+			"COMMANDERLUKESKYWALKER",
+			"HANSOLO",
+			"CHEWBACCALEGENDARY",
+			"R2D2_LEGENDARY",
+			"C3POLEGENDARY",
+			"C3POCHEWBACCA"
+		],
+		"required": ["COMMANDERLUKESKYWALKER"]
+	},
+	{
+		"title": "GG Droids",
+		"units": [
+			"GRIEVOUS",
+			"B2SUPERBATTLEDROID",
+			"B1BATTLEDROIDV2",
+			"DROIDEKA",
+			"MAGNAGUARD",
+			"BB8",
+			"WATTAMBOR"
+		],
+		"required": ["GRIEVOUS"]
+	},
+	{
+		"title": "Separatists",
+		"units": [
+			"NUTEGUNRAY",
+			"WATTAMBOR",
+			"COUNTDOOKU",
+			"ENFYSNEST",
+			"BOBAFETT",
+			"JANGOFETT",
+			"DROIDEKA"
+		]
+	},
+	{
+		"title": "Sith Empire",
+		"units": [
+			"DARTHREVAN",
+			"DARTHMALAK",
+			"BASTILASHANDARK",
+			"HK47",
+			"SITHTROOPER",
+			"SITHASSASSIN",
+			"SITHMARAUDER"
+		],
+		"required": ["DARTHREVAN"]
+	},
+	{
+		"title": "Sith Triumvirate",
+		"units": [
+			"DARTHTRAYA",
+			"DARTHSION",
+			"DARTHNIHILUS",
+			"BASTILASHANDARK",
+			"SITHTROOPER",
+			"GRANDADMIRALTHRAWN"
+		],
+		"required": ["DARTHTRAYA", "DARTHSION", "DARTHNIHILUS"]
+	},
+	{
+		"title": "Rey Killer 1",
+		"units": [
+			"JEDIKNIGHTREVAN",
+			"BASTILASHAN",
+			"GENERALSKYWALKER",
+			"HERMITYODA",
+			"GRANDADMIRALTHRAWN"
+		]
+	},
+	{
+		"title": "Rey Killer 2",
+		"units": [
+			"GRANDADMIRALTHRAWN",
+			"VADER",
+			"WATTAMBOR",
+			"DARTHTRAYA",
+			"SHORETROOPER",
+			"IMPERIALPROBEDROID"
+		]
+	}
 ]
