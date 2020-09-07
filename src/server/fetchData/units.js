@@ -19,6 +19,20 @@ const getSide = (name) => {
 	return null;
 };
 
+let zetaMap = new Map();
+let zetaData = JSON.parse(
+	fs.readFileSync("./server/fetchData/units/zetas.json")
+);
+
+zetaData.zetas.forEach((zeta) => {
+	zetaMap.set(zeta.id, { name: zeta.name });
+});
+
+const getZeta = (zeta) => {
+	let zetaName = zetaMap.get(zeta);
+	if (zetaName) return zetaName.name;
+	return null;
+};
 const getSquads = (unitsList, name) => {
 	const unitsMap = new Map();
 	const squads = [];
@@ -36,10 +50,12 @@ const getSquads = (unitsList, name) => {
 			// Undefined is fasly
 			if (playerUnit) {
 				// Select the zeta's on the unit
-				let zetas = [];
+				let zetas = "";
+				let count = 0;
 				playerUnit.skills.forEach((skill) => {
 					if (skill.tier === skill.tiers && skill.isZeta) {
-						zetas.push(skill.id)
+						count++;
+						zetas += getZeta(skill.id) + `\n`;
 					}
 				});
 				squadGp += playerUnit.gp;
@@ -51,7 +67,7 @@ const getSquads = (unitsList, name) => {
 					gear: playerUnit.gear,
 					gp: playerUnit.gp,
 					relic: playerUnit.relic,
-					zetas: zetas,
+					zetas: { count, names: zetas },
 					side: getSide(playerUnit.defId),
 				});
 			}
