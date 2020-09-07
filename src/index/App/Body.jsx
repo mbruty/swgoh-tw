@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { registerCallBack } from "./data";
 import { Spinner } from "react-bootstrap";
-import GuildInfo from "./Body/GuildInfo";
 import MemberInfo from "./Body/MemberInfo";
 import Squads from "./Body/Squads";
 import Paper from "@material-ui/core/Paper";
@@ -18,8 +17,10 @@ const Body = (props) => {
 				<Paper elevation={3} className="Paper">
 					<h1>Guild Data: {data.name}</h1>
 					<h3>Description: {data.desc}</h3>
-					<GuildInfo />
-					<MemberInfo />
+					<ul>
+						<li>Guild gp: {data.gp}</li>
+						<li>Members: {data.members}</li>
+					</ul>
 					<Squads />
 				</Paper>
 			</div>
