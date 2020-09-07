@@ -11,10 +11,13 @@ const Body = (props) => {
 	registerCallBack((data) => {
 		setData(data);
 	});
-	const [fetchState, setFetchState] = useState({message: "Fetching data...", progress: 0});
+	const [fetchState, setFetchState] = useState({
+		message: "Fetching data...",
+		progress: 0,
+	});
 	registerFetchState((data) => {
 		setFetchState(data);
-	})
+	});
 
 	console.log(props.codes);
 	// Display the data if we have it
@@ -34,14 +37,16 @@ const Body = (props) => {
 		);
 	}
 	// If we don't have any codes to search for
-	else if (!code){
-		return(
+	else if (!code) {
+		return (
 			<div className="body">
 				<Paper elevation={3} className="Paper">
-					<SearchForm setCode={setCode}/>
+					<div className="form-container">
+						<SearchForm setCode={setCode} />
+					</div>
 				</Paper>
 			</div>
-		)
+		);
 	}
 	// Display progress if we don't have the data
 	else
@@ -56,18 +61,18 @@ const Body = (props) => {
 };
 
 function LinearProgressWithLabel(props) {
-  return (
-    <Box display="flex" alignItems="center">
-      <Box width="100%" mr={1}>
-        <LinearProgress variant="determinate" {...props} />
-      </Box>
-      <Box minWidth={35}>
-        <Typography variant="body2" color="textSecondary">{`${Math.round(
-          props.value,
-        )}%`}</Typography>
-      </Box>
-    </Box>
-  );
+	return (
+		<Box display="flex" alignItems="center">
+			<Box width="100%" mr={1}>
+				<LinearProgress variant="determinate" {...props} />
+			</Box>
+			<Box minWidth={35}>
+				<Typography variant="body2" color="textSecondary">{`${Math.round(
+					props.value
+				)}%`}</Typography>
+			</Box>
+		</Box>
+	);
 }
 
 export default Body;
