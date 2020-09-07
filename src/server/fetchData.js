@@ -1,6 +1,6 @@
 const ApiSwgohHelp = require("api-swgoh-help");
 require("dotenv").config();
-const { guildCacheGet } = require("./fetchData/cache");
+const { cacheGet } = require("./fetchData/cache");
 
 const fetchPlayerData = require("./fetchData/fetchPlayerData");
 const fetchGuildData = require("./fetchData/fetchGuildData");
@@ -22,7 +22,7 @@ const login = () => {
 
 const createPlayerArray = (guildCode) => {
 	// Get the guild from the cache
-	let guild = guildCacheGet(guildCode);
+	let guild = cacheGet(guildCode);
 	let arr = [];
 	guild.roster.forEach((player) => {
 		arr.push(player.allyCode);
