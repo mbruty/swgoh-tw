@@ -9,49 +9,19 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Card from "./Shared/Card";
 import ShowSquad from "./Squads/ShowSquad";
+import MuiVirtualizedTable from "./Squads/MuiVirtualizedTable";
 
 const Suqads = () => {
 	const data = getSquads();
 
 	return (
-		<Card cardKey="2" title="Squads">
-			<div>
+			<>
 				{data.map((element, idx) => (
-					<Card
-						cardKey={idx + 1}
-						style={{ width: "100%" }}
-						title={element[0].squad.title}
-						secondary={`Squad count: ${element.length}`}
-					>
-						<TableContainer component={Paper}>
-							<Table aria-label="Squad table">
-								<TableHead>
-									<TableRow>
-										<TableCell>Name</TableCell>
-										<TableCell align="right">Power</TableCell>
-									</TableRow>
-								</TableHead>
-								<TableBody>
-									{element.map(item => (
-										<>
-											<TableRow>
-												<TableCell>
-													{item.owner}
-												</TableCell>
-												<TableCell allign="right">
-													{item.squad.squadGp}
-												</TableCell>
-											</TableRow>
-											<ShowSquad data={item} />
-										</>
-									))}
-								</TableBody>
-							</Table>
-						</TableContainer>
+					<Card title={element[0].squad.title} secondary={`Squad Count: ${element.length}`} >
+						<MuiVirtualizedTable data={element} />
 					</Card>
 				))}
-			</div>
-		</Card>
+			</>
 	);
 };
 

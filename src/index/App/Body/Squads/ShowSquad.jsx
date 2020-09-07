@@ -1,5 +1,5 @@
 import React from "react";
-import TableRow from "@material-ui/core/TableRow";
+import TableCell from "@material-ui/core/TableCell";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -9,18 +9,15 @@ const styles = makeStyles((theme) => ({
 	},
 }));
 
-const showSquad = (props) => {
+let classes;
 
+const showSquad = (props) => {
+	let left = props.data.units.length > 6 ? 'left' : '';
+	left = props.data.units.length === 6 ? 'tadLeft' : left;
 	if (props.data !== {}) {
 		return (
-			<TableRow
-				class="squad"
-				style={{
-					height: `${props.data.squad.units.length > 5 ? "200px" : "100px"}`,
-				}}
-			>
 				<div class="row">
-					{props.data.squad.units.map((unit) => (
+					{props.data.units.map((unit) => (
 						<div id="toon" className="col-xs-6 col-sm-3 col-md-3 col-lg-2">
 							<img
 								class="char"
@@ -34,50 +31,56 @@ const showSquad = (props) => {
 									unit.relic.currentTier > 1
 										? "char-portrait-relic"
 										: `char-portrait-no-relic g${unit.gear}`
-								} ${unit.side}`}
+								} ${unit.side} ${left}`}
 							/>
 							<div
-								className={`star star1 ${unit.rarity >= 1 ? null : "inactive"}`}
+								className={`star star1 ${unit.rarity >= 1 ? '' : "inactive"} ${left}`}
 							/>
 							<div
-								className={`star star2 ${unit.rarity >= 2 ? null : "inactive"}`}
+								className={`star star2 ${unit.rarity >= 2 ? '' : "inactive"} ${left}`}
 							/>
 							<div
-								className={`star star3 ${unit.rarity >= 3 ? null : "inactive"}`}
+								className={`star star3 ${unit.rarity >= 3 ? '' : "inactive"}${left}`}
 							/>
 							<div
-								className={`star star4 ${unit.rarity >= 4 ? null : "inactive"}`}
+								className={`star star4 ${unit.rarity >= 4 ? '' : "inactive"} ${left}`}
 							/>
 							<div
-								className={`star star5 ${unit.rarity >= 5 ? null : "inactive"}`}
+								className={`star star5 ${unit.rarity >= 5 ? '' : "inactive"} ${left}`}
 							/>
 							<div
-								className={`star star6 ${unit.rarity >= 6 ? null : "inactive"}`}
+								className={`star star6 ${unit.rarity >= 6 ? '' : "inactive"} ${left}`}
 							/>
 							<div
-								className={`star star7 ${unit.rarity >= 7 ? null : "inactive"}`}
+								className={`star star7 ${unit.rarity >= 7 ? '' : "inactive"} ${left}`}
 							/>
-							{unit.zetas.length > 0 ? <Zeta zetas={unit.zetas} /> : null}
+							{unit.zetas.count > 0 ? <Zeta zetas={unit.zetas} left={props.data.units.length > 6}/> : null}
 							{unit.relic.currentTier > 1 ? (
-								<div className={`relic ${unit.side}`}>
+								<div className={`relic ${unit.side} ${left}`}>
 									{unit.relic.currentTier - 2}
 								</div>
 							) : null}
-							<div className="level">{unit.level}</div>
+							<div className={`level ${left}`}>{unit.level}</div>
 						</div>
 					))}
 				</div>
-			</TableRow>
 		);
 	} else return null;
 };
 
 const Zeta = (props) => {
-	const classes = styles();
-	let title = props.zetas.reduce((acc, zeta) => acc + `\n` + zeta)
+	// As this is a constant throughout all components of this type, it's only called once
+	// to improve performance
+	if(!classes) classes = styles();
 	return (
-		<Tooltip classes={{ tooltip: classes.toolTip }} title={title} placement="bottom" arrow>
-			<div className="zeta">{props.zetas.length}</div>
+		<Tooltip
+			classes={{ tooltip: classes.toolTip }}
+			title={props.zetas.names}
+			placement="bottom"
+			arrow
+			interactive
+		>
+			<div className={`zeta ${props.left ? 'left' : ''}`}>{props.zetas.count}</div>
 		</Tooltip>
 	);
 };
