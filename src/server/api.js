@@ -4,6 +4,8 @@ var cors = require("cors");
 const path = require("path");
 var bodyParser = require("body-parser");
 const { fetchGuildPlayerData } = require("./fetchData");
+const io = require('socket.io')();
+io.listen(4000);
 
 // Cors
 const whitelist = [
@@ -42,22 +44,11 @@ const startService = () => {
 	});
 };
 
-// Routes
-
-// api/guilds/code1&code2&code3...
-app.get("/api/guilds/:code", (req, res) => {
-	const code = req.params.code.split("&");
-	// Every code in the params is of length 9
-	if (code.every((value) => value.length === 9)) {
-		fetchGuildPlayerData(code)
-			.then((players) => res.json(players))
-			.catch((err) => {
-				console.log(err);
-				res.status(404).json(err);
-			});
-	} else {
-		res.sendStatus(400);
-	}
+io.sockets.on("connection", socket => {
+	socket.on("getGuild", codes => {
+		fetchGuildPlayerData([codes], socket)
+		.then(data => socket.emit('fetched', data[0]))
+	})
 });
 
 module.exports = startService;

@@ -1,21 +1,25 @@
-const axios = require("axios").default;
-
+const io = require("socket.io-client");
 let callBack;
+let updateCb;
 // Storing data here, rather than in a state as it's pretty much a global variable
 let data;
 const fetchData = (allyCodes) => {
+	console.log(allyCodes);
 	return new Promise((resolve, reject) => {
-		axios
-			.get("http://localhost:5000/api/guilds/" + allyCodes)
-			.then((response) => {
-				data = response.data[0];
-				callBack(data);
-				resolve();
-			})
-			.catch((error) => {
-				console.log(error);
-				reject(error);
-			});
+		let socket = io("http://localhost:4000");
+		socket.on('connect', client => {
+			console.log("Connected");
+		});
+		socket.emit('getGuild', allyCodes);
+		socket.on('fetched', res => {
+			data = res;
+			// Delay so that the animation can finish
+			setTimeout(() => callBack(data), 400);
+		})
+		socket.on('update', res => {
+			updateCb(res);
+			console.log(res);
+		})
 	});
 };
 
@@ -28,12 +32,15 @@ const registerCallBack = (cb) => {
 };
 
 const getMemberData = () => {
-	return {gp: data.gp, members: data.members}
-}
+	return { gp: data.gp, members: data.members };
+};
 
+const registerFetchState = (cb) => {
+	updateCb = cb;
+}
 const getSquads = () => {
 	return data.squads;
-}
+};
 
 module.exports = {
 	getSquads: getSquads,
@@ -41,4 +48,5 @@ module.exports = {
 	registerCallBack: registerCallBack,
 	fetchData: fetchData,
 	getData: getData,
+	registerFetchState: registerFetchState
 };
