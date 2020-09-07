@@ -30,6 +30,7 @@ const SearchForm = (props) => {
 				return errors;
 			}}
 			onSubmit={(data) => {
+        data.allyCode = data.allyCode.replace(/-/g, "")
         props.setCode(data.allyCode);
 				fetchData(data.allyCode);
 			}}
