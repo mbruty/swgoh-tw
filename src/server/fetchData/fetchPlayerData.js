@@ -1,7 +1,7 @@
 const sortGuildSquads = require("./sortGuildSquads");
 const sortSquads = require("./sortSquads");
 const { getSquads } = require("./units");
-const { playerCacheSet, guildCacheSet } = require("./cache");
+const { cacheSet } = require("./cache");
 
 //@param allycodes => Array of allycodes to obtain
 //@param count | default zero => Number of rejections
@@ -40,7 +40,7 @@ module.exports = async (allycodes, guild, swapi, socket) => {
 		// Lexical sorting of squads
     guild.squads = sortGuildSquads(guild.squads);
     guild.fetchedPlayers = true;
-		guildCacheSet(guild.id, guild);
+		cacheSet(guild.id, guild);
 		resolve(guild);
 	});
 };
@@ -50,7 +50,7 @@ const processPlayers = (result, guildId, spookySquads) => {
 	result.forEach((player) => {
 		found.push(player.allyCode);
 		// Add the player to the player cache
-		playerCacheSet(player.allyCode, guildId);
+		cacheSet(player.allyCode, guildId);
 		let toonArr = [];
 		let shipArr = [];
 		player.roster.forEach((character) => {

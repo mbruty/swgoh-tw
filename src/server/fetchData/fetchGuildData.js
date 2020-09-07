@@ -1,4 +1,4 @@
-const { playerCacheHas, playerCacheGet, guildCacheSet } = require("./cache");
+const { cacheHas, cacheGet, cacheSet } = require("./cache");
 
 //@param allycodes => Array of ally codes to fetch the guild data for
 //@param count | default zero => Number of rejections
@@ -14,8 +14,8 @@ module.exports =  async (codes, swapi, socket) => {
 		let searchCodes = [];
 		// See if the cache contains any of the allycodes and remove it from the search array
 		codes.forEach((code) => {
-			if (playerCacheHas(code)) {
-				resultArr.push(playerCacheGet(code));
+			if (cacheHas(code)) {
+				resultArr.push(cacheGet(code));
 			} else {
 				searchCodes.push(code);
 			}
@@ -71,7 +71,7 @@ module.exports =  async (codes, swapi, socket) => {
 			//Add the guild id to the result array
 			resultArr.push(res.id);
 			//Add the guild to the cache
-			guildCacheSet(res.id, res);
+			cacheSet(res.id, res);
     });
 		resolve(resultArr);
 	});
