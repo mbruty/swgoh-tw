@@ -51,14 +51,26 @@ const fetchGuildData = async (codes, count = 0) => {
 		}
 		// If all of the codes have been found in the cache, return as no new data is needed
 		if (searchCodes.length === 0) {
+			console.log("Cache hit");
 			resolve(resultArr);
 			return;
 		}
+		console.log("Cahce miss");
 		if (count === MAX_REJECTIONS)
 			reject(new Error("Maximum number of retrys exceeded"));
 		const payload = {
 			allycodes: searchCodes,
 			collection: "guildExchangeItemList",
+			project: {
+				id: true,
+				name: true,
+				desc: true,
+				members: true,
+				gp: true,
+				roster: {
+					allyCode: true,
+				},
+			},
 		};
 		let { result, error, warning } = await swapi.fetchGuild(payload);
 
@@ -71,12 +83,13 @@ const fetchGuildData = async (codes, count = 0) => {
 			console.warn("Warning:", warning, "Done");
 			// Check if no results are undefined
 			if (!result.some((res) => res === undefined)) {
-				let retry = fetchGuildData(searchCodes, count + 1)
-				.catch((err) => console.log("Reject"));
+				let retry = fetchGuildData(searchCodes, count + 1).catch((err) =>
+					console.log("Reject")
+				);
 				Promise.all([retry]).then((res) => {
 					console.log(retry);
 					resolve(res);
-				})
+				});
 			} else {
 				reject("Guild not found");
 			}
@@ -97,7 +110,7 @@ const fetchGuildData = async (codes, count = 0) => {
 //@param guild => The guildID to update
 //@return Promise with guild object
 //Fetches the player data for the guild and updates the cache with the guild info
-const fetchPlayerData = async (allycodes, count = 0, guild) => {
+const fetchPlayerData = async (allycodes, guild) => {
 	return new Promise(async (resolve, reject) => {
 		// Fetched players is set once the guild has been processed and placed in the cache
 		// This will only be true if the guild has been processed and is contained in the cache
@@ -105,89 +118,75 @@ const fetchPlayerData = async (allycodes, count = 0, guild) => {
 			resolve(guild);
 			return;
 		}
-		if (count === MAX_REJECTIONS)
-			reject(new Error("Maximum number of retrys exceeded"));
-		const payload = {
-			allycodes: allycodes,
-			collection: "unitsList",
-		};
-		let { result, error, warning } = await swapi.fetchPlayer(payload);
-		if (error) {
-			console.log("Player error", error);
-		}
-		if (warning) {
-			console.warn(warning);
-			fetchPlayerData(allycodes, count + 1)
-				.then((res) => resolve(res))
-				.catch((err) => reject(err));
-		} else {
-			let playerArr = [];
-			let spookySquads = [];
-			result.forEach((player) => {
-				// Add the player to the player cache
-				playerCache.set(player.allyCode, guild.id);
+		let toFetch = [...allycodes];
+		let spookySquads = [];
+		while (toFetch.length > 0) {
+			console.log("Loop");
+			const payload = {
+				allycodes: toFetch,
+				collection: "unitsList"
+			};
+			let { result, error, warning } = await swapi.fetchPlayer(payload);
+			if (error) {
+				console.log("Player error", error);
+			} else if (warning) {
+				console.warn(warning);
+				fetchPlayerData(allycodes, guild)
+					.then((res) => resolve(res))
+					.catch((err) => reject(err));
+			} else {
 
-				let toonArr = [];
-				let shipArr = [];
-				player.roster.forEach((character) => {
-					//Actual relic level is currentTier - 2
-					let charObj = {
-						name: character.defId,
-						star: character.rarity,
-						level: character.level,
-						power: character.gp,
-						relic: character.relic,
-					};
-					if (character.combatType === 1) {
-						toonArr.push(charObj);
-					} else {
-						shipArr.push(charObj);
+				let found = [];
+				result.forEach((player) => {
+					found.push(player.allyCode)
+					// Add the player to the player cache
+					playerCache.set(player.allyCode, guild.id);
+
+					let toonArr = [];
+					let shipArr = [];
+					player.roster.forEach((character) => {
+						//Actual relic level is currentTier - 2
+						let charObj = {
+							name: character.defId,
+							star: character.rarity,
+							level: character.level,
+							power: character.gp,
+							relic: character.relic,
+						};
+						if (character.combatType === 1) {
+							toonArr.push(charObj);
+						} else {
+							shipArr.push(charObj);
+						}
+					});
+
+					let trackedSquads = getSquads(player.roster, player.name);
+					// If the player has a tracked squad, add it to the array
+					if (trackedSquads.squads.length > 0) {
+						trackedSquads.squads.forEach((squad) => {
+							// If squads doesn't have the squad in it, add it to an empty object
+							if (!spookySquads.find((item) => item.title === squad.title)) {
+								spookySquads.push({ title: squad.title, squads: [] });
+							}
+							spookySquads
+								.find((item) => item.title === squad.title)
+								.squads.push({
+									owner: player.name,
+									squad: squad,
+									squadGp: squad.squadGp,
+								});
+						});
 					}
 				});
 
-				let trackedSquads = getSquads(player.roster, player.name);
-				// If the player has a tracked squad, add it to the array
-				if (trackedSquads.squads.length > 0) {
-					trackedSquads.squads.forEach((squad) => {
-						// If squads doesn't have the squad in it, add it to an empty object
-						if (!spookySquads.find((item) => item.title === squad.title)) {
-							spookySquads.push({ title: squad.title, squads: [] });
-						}
-						spookySquads
-							.find((item) => item.title === squad.title)
-							.squads.push({ owner: player.name, squad: squad });
-					});
-				}
-				// Sort the characters by power
-				sortToons(toonArr);
-				// Sort the ships by power
-				sortToons(shipArr);
-
-				// Find the stat for gp
-				let gp = player.stats.filter(
-					(stat) => stat.nameKey === "STAT_GALACTIC_POWER_ACQUIRED_NAME"
-				);
-				gp = gp[0].value;
-				playerArr.push({
-					name: player.name,
-					gp: gp,
-					level: player.level,
-					toons: toonArr,
-					ships: shipArr,
-				});
-				// Sort the player array to get the highest gp first
-				sortPlayers(playerArr);
-			});
-			guild.fetchedPlayers = true;
-			guild.roster = playerArr;
-			// Sort the squads by their squadGP
-
-			guild.squads = spookySquads.map((squad) => sortSquads(squad.squads));
-			// Lexical sorting of squads
-			guild.squads = sortGuildSquads(guild.squads);
-			guildCache.set(guild.id, guild);
-			resolve(guild);
+				found.forEach((item) => toFetch.splice(toFetch.indexOf(item), 1));
+			}
 		}
+		guild.squads = spookySquads.map((squad) => sortSquads(squad.squads));
+		// Lexical sorting of squads
+		guild.squads = sortGuildSquads(guild.squads);
+		guildCache.set(guild.id, guild);
+		resolve(guild);
 	});
 };
 
@@ -198,6 +197,7 @@ const createPlayerArray = (guildCode) => {
 	guild.roster.forEach((player) => {
 		arr.push(player.allyCode);
 	});
+
 	return {
 		guild: guild,
 		playerArr: arr,
@@ -207,14 +207,14 @@ const processGuild = (guildArr) => {
 	return new Promise((resolve, reject) => {
 		let promiseArr = guildArr.map((element) => {
 			let players = createPlayerArray(element);
-			return fetchPlayerData(players.playerArr, 0, players.guild);
+			return fetchPlayerData(players.playerArr, players.guild);
 		});
 
 		Promise.all(promiseArr)
 			.then((res) => {
 				resolve(res);
 			})
-			.catch((err) => console.log("err"));
+			.catch((err) => console.log(err));
 	});
 };
 
