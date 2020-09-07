@@ -1,30 +1,27 @@
-//Create the cache and set the time to live to 6 hours
-const NodeCache = require("node-cache");
-const guildCache = new NodeCache({ stdTTL: 21600 });
-const playerCache = new NodeCache({ stdTTL: 21600 });
+const redis = require("redis");
+const client = redis.createClient({password: process.env.REDIS_PWD});
+ 
+client.on("error", function(error) {
+  console.error(error);
+});
 
-// Using this as a proxy so that the cahce object isn't passed around
-// wasting memory
+client.on('connect', function() {
+  console.log('Redis client connected');
+});
 
-// Implicit returns
-const playerCacheHas = (query) => playerCache.has(query);
+const cacheHas = (query) => client.get(query, (res) => res ? true : false)
 
-const playerCacheGet = (query) => playerCache.get(query);
+const cacheGet = (query) => client.get(query, res => res);
 
-const guildCacheGet = (query) => guildCache.get(query);
+
 // Doesn't need to return anything
-const playerCacheSet = (key, value) => {
-	playerCache.set(key, value);
+const cacheSet = (key, value) => {
+	client.set(key, value);
 };
 
-const guildCacheSet = (key, value) => {
-  guildCache.set(key, value);
-}
 
 module.exports = {
-  playerCacheHas,
-  playerCacheGet,
-  playerCacheSet,
-  guildCacheGet,
-  guildCacheSet
+  cacheHas,
+  cacheGet,
+  cacheSet,
 }
