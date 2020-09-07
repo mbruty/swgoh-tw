@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { registerCallBack } from "./data";
-import { Spinner } from "react-bootstrap";
-import MemberInfo from "./Body/MemberInfo";
+import { registerCallBack, registerFetchState } from "./data";
 import Squads from "./Body/Squads";
 import Paper from "@material-ui/core/Paper";
+import { LinearProgress, Box, Typography } from "@material-ui/core";
+import SearchForm from "./Body/SearchForm";
 
 const Body = (props) => {
 	const [data, setData] = useState();
+	const [code, setCode] = useState(props.codes);
 	registerCallBack((data) => {
 		setData(data);
 	});
+	const [fetchState, setFetchState] = useState({message: "Fetching data...", progress: 0});
+	registerFetchState((data) => {
+		setFetchState(data);
+	})
+
+	console.log(props.codes);
 	// Display the data if we have it
 	if (data) {
 		return (
@@ -26,16 +33,41 @@ const Body = (props) => {
 			</div>
 		);
 	}
-	// Display a spinner if not
+	// If we don't have any codes to search for
+	else if (!code){
+		return(
+			<div className="body">
+				<Paper elevation={3} className="Paper">
+					<SearchForm setCode={setCode}/>
+				</Paper>
+			</div>
+		)
+	}
+	// Display progress if we don't have the data
 	else
 		return (
 			<div class="body">
-				<div className="loading">
-					<Spinner animation="border" size="m" />
-					<h1>Loading data...</h1>
-				</div>
+				<Paper elevation={3} className="Paper">
+					<h1>{fetchState.message}</h1>
+					<LinearProgressWithLabel value={fetchState.progress} />
+				</Paper>
 			</div>
 		);
 };
+
+function LinearProgressWithLabel(props) {
+  return (
+    <Box display="flex" alignItems="center">
+      <Box width="100%" mr={1}>
+        <LinearProgress variant="determinate" {...props} />
+      </Box>
+      <Box minWidth={35}>
+        <Typography variant="body2" color="textSecondary">{`${Math.round(
+          props.value,
+        )}%`}</Typography>
+      </Box>
+    </Box>
+  );
+}
 
 export default Body;

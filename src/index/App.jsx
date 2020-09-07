@@ -13,7 +13,7 @@ const App = () => {
 	return (
 		<div className="App">
 			<Nav codes={params.substring()} />
-			<Body />
+			<Body codes={params.substring()} />
 		</div>
 	);
 };
