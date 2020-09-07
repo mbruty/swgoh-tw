@@ -29,6 +29,7 @@ const Card = (props) => {
 		<Accordion
 			expanded={expanded === `pannel${props.cardKey}`}
 			onChange={handleChange(`pannel${props.cardKey}`)}
+			TransitionProps={{ unmountOnExit: true }} 
 		>
 			<AccordionSummary
 				expandIcon={<ExpandMoreIcon />}
