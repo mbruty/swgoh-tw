@@ -10,6 +10,7 @@ const { cacheSet } = require("./cache");
 //Fetches the player data for the guild and updates the cache with the guild info
 module.exports = async (allycodes, guild, swapi, socket) => {
 	return new Promise(async (resolve, reject) => {
+		console.log("Get players");
 		// Fetched players is set once the guild has been processed and placed in the cache
     // This will only be true if the guild has been processed and is contained in the cache
 		if (guild.fetchedPlayers) {

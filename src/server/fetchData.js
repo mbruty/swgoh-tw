@@ -20,9 +20,9 @@ const login = () => {
 	});
 };
 
-const createPlayerArray = (guildCode) => {
+const createPlayerArray = async (guildCode) => {
 	// Get the guild from the cache
-	let guild = cacheGet(guildCode);
+	let guild = await cacheGet(guildCode);
 	let arr = [];
 	guild.roster.forEach((player) => {
 		arr.push(player.allyCode);
@@ -36,8 +36,8 @@ const createPlayerArray = (guildCode) => {
 
 const processGuild = (guildArr, socket) => {
 	return new Promise((resolve, reject) => {
-		let promiseArr = guildArr.map((element) => {
-			let players = createPlayerArray(element);
+		let promiseArr = guildArr.map(async (element) => {
+			let players = await createPlayerArray(element);
 			return fetchPlayerData(players.playerArr, players.guild, swapi, socket);
 		});
 

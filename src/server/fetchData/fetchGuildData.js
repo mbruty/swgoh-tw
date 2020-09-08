@@ -1,4 +1,4 @@
-const { cacheHas, cacheGet, cacheSet } = require("./cache");
+const { cacheGet, cacheSet } = require("./cache");
 
 //@param allycodes => Array of ally codes to fetch the guild data for
 //@param count | default zero => Number of rejections
@@ -13,13 +13,14 @@ module.exports =  async (codes, swapi, socket) => {
 		let resultArr = [];
 		let searchCodes = [];
 		// See if the cache contains any of the allycodes and remove it from the search array
-		codes.forEach((code) => {
-			if (cacheHas(code)) {
-				resultArr.push(cacheGet(code));
+		await Promise.all(codes.map(async (code) => {
+			let result = await cacheGet(code);
+			if (result) {;
+				resultArr.push(result);
 			} else {
 				searchCodes.push(code);
 			}
-		});
+		}));
 		// If all of the codes have been found in the cache, return as no new data is needed
 		if (searchCodes.length === 0) {
       socket.emit('update', {message: 'Found cached data', progress: 25})
@@ -66,7 +67,6 @@ module.exports =  async (codes, swapi, socket) => {
 				}
 			}
 		}
-
 		result.forEach((res) => {
 			//Add the guild id to the result array
 			resultArr.push(res.id);
