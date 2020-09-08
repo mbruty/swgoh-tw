@@ -9,11 +9,11 @@ const CustomTextField = ({ placeholder, ...props }) => {
 	const errorText = meta.error && meta.touched ? meta.error : "";
 	return (
 		<TextField
-			placeholder={placeholder}
 			{...field}
 			helperText={errorText}
 			error={!!errorText}
 			className="allycode-input"
+			label={placeholder}
 		/>
 	);
 };
