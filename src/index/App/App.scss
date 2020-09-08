@@ -1,5 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 
+.no-focus:focus{
+	outline: none;
+}
 .App {
 	width: 100%;
 	height: auto;
@@ -31,6 +34,7 @@
 		.Paper {
 			background-color: rgba(255, 255, 255, 0.795);
 			padding: 25px;
+			margin-bottom: 25px;
 		}
 
 		.card {
