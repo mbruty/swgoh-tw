@@ -3,6 +3,7 @@ const client = redis.createClient({
 	password: process.env.REDIS_PWD,
 	host: process.env.REDIS_HOST,
 });
+
 const { promisify } = require("util");
 const getAsync = promisify(client.get).bind(client);
 const EXPIRE_TIME = 43200;
