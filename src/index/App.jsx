@@ -3,6 +3,18 @@ import "./App/App.scss";
 import Nav from "./App/Nav";
 import Body from "./App/Body";
 import { fetchData } from "./App/data";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ffc107',
+    },
+    secondary: {
+      main: '#7cb342',
+    },
+  },
+});
 
 const App = () => {
 	// Get the allycodes from the url
@@ -12,8 +24,10 @@ const App = () => {
 	}
 	return (
 		<div className="App">
-			<Nav codes={params.substring()} />
-			<Body codes={params.substring()} />
+			<ThemeProvider theme={theme}>
+				<Nav codes={params.substring()} />
+				<Body codes={params.substring()} />
+			</ThemeProvider>
 		</div>
 	);
 };
