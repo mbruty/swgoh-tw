@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerCallBack, registerFetchState } from "./data";
+import { registerCallBack, registerFetchState, getData } from "./data";
 import Squads from "./Body/Squads";
 import Paper from "@material-ui/core/Paper";
 import { LinearProgress, Box, Typography } from "@material-ui/core";
@@ -8,19 +8,20 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import Search from "./Body/Search";
 
 const Body = (props) => {
-	const [data, setData] = useState();
+	const [data, setData] = useState(getData());
 	const [code, setCode] = useState(props.codes);
 	const [searchTerms, setSerchTerms] = useState();
-	registerCallBack((data) => {
-		setData(data);
-	});
 	const [fetchState, setFetchState] = useState({
 		message: "Fetching data...",
 		progress: 0,
 	});
+	registerCallBack((data) => {
+		setData(data);
+	});
 	registerFetchState((data) => {
 		setFetchState(data);
 	});
+	console.log(fetchState);
 	// Display the data if we have it
 	if (data) {
 		return (
