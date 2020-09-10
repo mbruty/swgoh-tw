@@ -1,5 +1,5 @@
 const fs = require("fs");
-
+const sort = require("./shared/sort");
 let squadData = JSON.parse(
 	fs.readFileSync("./server/fetchData/units/squads.json")
 );
@@ -41,7 +41,7 @@ const getSquads = (unitsList, name) => {
 		unitsMap.set(unit.defId, unit);
 	});
 	squadData.forEach((squad) => {
-		const unitArr = [];
+		let unitArr = [];
 		// Keep track of the squad gp
 		let squadGp = 0;
 		squad.units.forEach((unit) => {
@@ -73,6 +73,7 @@ const getSquads = (unitsList, name) => {
 			}
 		});
 		if (unitArr.length >= 5) {
+			unitArr = sort(unitArr, (a, b) => a.gp >= b.gp)
 			// If the squad has a required field
 			if (squad.required) {
 				let containsRequired = squad.required.some((char) => {
@@ -80,9 +81,9 @@ const getSquads = (unitsList, name) => {
 					return unitArr.some((c) => c.defId === char);
 				});
 				if (containsRequired)
-					squads.push({ title: squad.title, squadGp: squadGp, units: unitArr });
+					squads.push({ title: squad.title, squadGp: squadGp, units: unitArr.slice(0, 5) });
 			} else
-				squads.push({ title: squad.title, squadGp: squadGp, units: unitArr });
+				squads.push({ title: squad.title, squadGp: squadGp, units: unitArr.slice(0, 5) });
 		}
 	});
 	return { name, squads };
