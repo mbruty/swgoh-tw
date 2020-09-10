@@ -1,8 +1,6 @@
-const sortGuildSquads = require("./sortGuildSquads");
-const sortSquads = require("./sortSquads");
 const { getSquads } = require("./units");
 const { cacheSet } = require("./cache");
-
+const sort = require("./shared/sort");
 //@param allycodes => Array of allycodes to obtain
 //@param count | default zero => Number of rejections
 //@param guild => The guildID to update
@@ -12,16 +10,26 @@ module.exports = async (allycodes, guild, swapi, socket) => {
 	return new Promise(async (resolve, reject) => {
 		console.log("Get players");
 		// Fetched players is set once the guild has been processed and placed in the cache
-    // This will only be true if the guild has been processed and is contained in the cache
+		// This will only be true if the guild has been processed and is contained in the cache
 		if (guild.fetchedPlayers) {
-      socket.emit('update', {message: 'Found cached player data', progress: 100})
+			socket.emit("update", {
+				message: "Found cached player data",
+				progress: 100,
+			});
 			resolve(guild);
 			return;
 		}
 		let toFetch = [...allycodes];
 		let spookySquads = [];
 		while (toFetch.length > 0) {
-      socket.emit('update', {message: `Getting player data: ${allycodes.length - toFetch.length} / ${allycodes.length}`, progress: `${(((allycodes.length - toFetch.length) / allycodes.length) * 70) + 30}`})
+			socket.emit("update", {
+				message: `Getting player data: ${allycodes.length - toFetch.length} / ${
+					allycodes.length
+				}`,
+				progress: `${
+					((allycodes.length - toFetch.length) / allycodes.length) * 70 + 30
+				}`,
+			});
 			const payload = {
 				allycodes: toFetch,
 				collection: "unitsList",
@@ -35,12 +43,27 @@ module.exports = async (allycodes, guild, swapi, socket) => {
 				let found = processPlayers(result, guild.id, spookySquads);
 				found.forEach((item) => toFetch.splice(toFetch.indexOf(item), 1));
 			}
-    }
-    socket.emit('update', {message: `Getting player data: ${allycodes.length - toFetch.length} / ${allycodes.length}`, progress: 100})
-		guild.squads = spookySquads.map((squad) => sortSquads(squad.squads));
+		}
+		socket.emit("update", {
+			message: `Getting player data: ${allycodes.length - toFetch.length} / ${
+				allycodes.length
+			}`,
+			progress: 100,
+		});
+		guild.squads = spookySquads.map((squad) =>
+			sort(squad.squads, (a, b) => a.squad.squadGp >= b.squad.squadGp)
+		);
 		// Lexical sorting of squads
-    guild.squads = sortGuildSquads(guild.squads);
-    guild.fetchedPlayers = true;
+		guild.squads = sort(guild.squads, (a, b) => {
+			let counter = 0;
+			a = a[0].squad.title;
+			b = b[0].squad.title;
+			while(a.charCodeAt(counter) === b.charCodeAt(counter)){
+				counter++;
+			}
+			return a.charCodeAt(counter) < b.charCodeAt(counter);
+		})
+		guild.fetchedPlayers = true;
 		cacheSet(guild.id, guild);
 		resolve(guild);
 	});
@@ -87,6 +110,6 @@ const processPlayers = (result, guildId, spookySquads) => {
 					});
 			});
 		}
-  });
-  return found;
+	});
+	return found;
 };
