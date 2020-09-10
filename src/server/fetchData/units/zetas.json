@@ -1,556 +1,556 @@
 {
-	"zetas": [
-		{
-			"id": "basicskill_GENERALSKYWALKER",
-			"name": "Furious Slash"
-		},
-		{
-			"id": "leaderskill_GENERALSKYWALKER",
-			"name": "General of the 501st"
-		},
-		{
-			"id": "uniqueskill_GENERALSKYWALKER01",
-			"name": "The chosen one"
-		},
-		{
-			"id": "uniqueskill_GENERALSKYWALKER02",
-			"name": "Hero with no fear"
-		},
-		{
-			"id": "uniqueskill_ARCTROOPER501ST01",
-			"name": "ARC Arsenal"
-		},
-		{
-			"id": "uniqueskill_ct21040802",
-			"name": "Domino Squad"
-		},
-		{
-			"id": "uniqueskill_REX01",
-			"name": "Brothers in Arms"
-		},
-		{
-			"id": "uniqueskill_CT555501",
-			"name": "Domino Squad"
-		},
-		{
-			"id": "uniqueskill_CT555502",
-			"name": "Tactical Awareness"
-		},
-		{
-			"id": "leaderskill_BOSSK",
-			"name": "On The Hunt"
-		},
-		{
-			"id": "uniqueskill_BOSSK01",
-			"name": "Trandoshan Rage"
-		},
-		{
-			"id": "uniqueskill_BOBAFETT01",
-			"name": "Bounty Hunter's Resolve"
-		},
-		{
-			"id": "leaderskill_JANGOFETT",
-			"name": "Anything to Get Ahead"
-		},
-		{
-			"id": "uniqueskill_JANGOFETT01",
-			"name": "Notorious Reputation"
-		},
-		{
-			"id": "uniqueskill_DENGAR01",
-			"name": "Grizzled Veteran"
-		},
-		{
-			"id": "uniqueskill_ZAMWESELL01",
-			"name": "Shapeshifter"
-		},
-		{
-			"id": "specialskill_GREEDO02",
-			"name": "Threaten"
-		},
-		{
-			"id": "uniqueskill_THEMANDALORIAN01",
-			"name": "Disciplined Bounty Hunter"
-		},
-		{
-			"id": "leaderskill_THEMANDALORIAN",
-			"name": "Asset Acquisition"
-		},
-		{
-			"id": "specialskill_GREEFKARGA01",
-			"name": "Bring Them in Cold"
-		},
-		{
-			"id": "specialskill_GREEFKARGA02",
-			"name": "Sweeten the Deal"
-		},
-		{
-			"id": "leaderskill_COMMANDERLUKESKYWALKER",
-			"name": "Rebel Maneuvers"
-		},
-		{
-			"id": "uniqueskill_COMMANDERLUKESKYWALKER01",
-			"name": "Learn Control"
-		},
-		{
-			"id": "uniqueskill_COMMANDERLUKESKYWALKER02",
-			"name": "It Binds All Things"
-		},
-		{
-			"id": "uniqueskill_HANSOLO01",
-			"name": "Shoots First"
-		},
-		{
-			"id": "uniqueskill_CHEWBACCALEGENDARY01",
-			"name": "Loyal Friend"
-		},
-		{
-			"id": "uniqueskill_CHEWBACCALEGENDARY02",
-			"name": "Raging Wookiee"
-		},
-		{
-			"id": "uniqueskill_R2D2_LEGENDARY01",
-			"name": "Combat Analysis"
-		},
-		{
-			"id": "uniqueskill_R2D2_LEGENDARY02",
-			"name": "Number Crunch"
-		},
-		{
-			"id": "uniqueskill_C3POLEGENDARY02",
-			"name": "Wait for Me!"
-		},
-		{
-			"id": "specialskill_C3POLEGENDARY01",
-			"name": "Oh My Goodness!"
-		},
-		{
-			"id": "specialskill_C3POCHEWBACCA02",
-			"name": "Chewie's Rage"
-		},
-		{
-			"id": "leaderskill_SHAAKTI",
-			"name": "Unity Wins War"
-		},
-		{
-			"id": "uniqueskill_SHAAKTI01",
-			"name": "Heightened Reflexes"
-		},
-		{
-			"id": "leaderskill_CC2224",
-			"name": "Ghost Company Commander"
-		},
-		{
-			"id": "uniqueskill_AHSOKATANO01",
-			"name": "Quick Steps"
-		},
-		{
-			"id": "uniqueskill_BARRISSOFFEE01",
-			"name": "Swift Recovery"
-		},
-		{
-			"id": "leaderskill_EMPERORPALPATINE",
-			"name": "Emperor of the Galactic Empire"
-		},
-		{
-			"id": "uniqueskill_EMPERORPALPATINE01",
-			"name": "Crackling Doom"
-		},
-		{
-			"id": "leaderskill_VADER",
-			"name": "Inspiring Through Fear"
-		},
-		{
-			"id": "uniqueskill_VADER01",
-			"name": "No Escape"
-		},
-		{
-			"id": "specialskill_VADER03",
-			"name": "Merciless Massacre"
-		},
-		{
-			"id": "uniqueskill_IMPERIALPROBEDROID01",
-			"name": "Imperial Logistics"
-		},
-		{
-			"id": "leaderskill_GRANDMOFFTARKIN",
-			"name": "Tighten the Grip"
-		},
-		{
-			"id": "uniqueskill_GRANDMOFFTARKIN01",
-			"name": "Callous Conviction"
-		},
-		{
-			"id": "uniqueskill_DEATHTROOPER01",
-			"name": "Krennic's Guard"
-		},
-		{
-			"id": "leaderskill_DIRECTORKRENNIC",
-			"name": "Director of Advanced Weapons Research"
-		},
-		{
-			"id": "uniqueskill_COUNTDOOKU01",
-			"name": "Flawless Riposte"
-		},
-		{
-			"id": "leaderskill_GRANDADMIRALTHRAWN",
-			"name": "Legendary Strategist"
-		},
-		{
-			"id": "uniqueskill_GRANDADMIRALTHRAWN01",
-			"name": "Ebb and Flow"
-		},
-		{
-			"id": "specialskill_KYLOREN02",
-			"name": "Outrage"
-		},
-		{
-			"id": "uniqueskill_KYLORENUNMASKED01",
-			"name": "Scarred"
-		},
-		{
-			"id": "leaderskill_KYLORENUNMASKED",
-			"name": "Merciless Pursuit"
-		},
-		{
-			"id": "uniqueskill_FIRSTORDERTROOPER01",
-			"name": "Return Fire"
-		},
-		{
-			"id": "uniqueskill_FIRSTORDERTIEPILOT01",
-			"name": "Keen Eye"
-		},
-		{
-			"id": "uniqueskill_GENERALHUX01",
-			"name": "Boundless Ambition"
-		},
-		{
-			"id": "uniqueskill_GRIEVOUS01",
-			"name": "Metalloid Monstrosity"
-		},
-		{
-			"id": "leaderskill_GRIEVOUS",
-			"name": "Daunting Presence"
-		},
-		{
-			"id": "uniqueskill_B2SUPERBATTLEDROID02",
-			"name": "Reactive Protocol"
-		},
-		{
-			"id": "uniqueskill_b1battledroidv2_02",
-			"name": "Droid Battalion"
-		},
-		{
-			"id": "uniqueskill_DROIDEKA01",
-			"name": "Deflector Shield Generator"
-		},
-		{
-			"id": "specialskill_MAGNAGUARD02",
-			"name": "Stunning Strike"
-		},
-		{
-			"id": "uniqueskill_BB801",
-			"name": "Roll with the Punches"
-		},
-		{
-			"id": "uniqueskill_BB802",
-			"name": "Self-Preservation Protocol"
-		},
-		{
-			"id": "uniqueskill_WATTAMBOR02",
-			"name": "Mass Manufacture"
-		},
-		{
-			"id": "basicskill_SUPREMELEADERKYLOREN",
-			"name": "Brutal Assault"
-		},
-		{
-			"id": "specialskill_SUPREMELEADERKYLOREN01",
-			"name": "Stasis Strike"
-		},
-		{
-			"id": "specialskill_SUPREMELEADERKYLOREN02",
-			"name": "Furious Onslaught"
-		},
-		{
-			"id": "uniqueskill_SUPREMELEADERKYLOREN01",
-			"name": "Press the Advantage"
-		},
-		{
-			"id": "leaderskill_SUPREMELEADERKYLOREN",
-			"name": "Supreme Leader"
-		},
-		{
-			"id": "uniqueskill_GALACTICLEGEND01",
-			"name": "Galactic Legend"
-		},
-		{
-			"id": "basicskill_GLREY",
-			"name": "Relentless Advance"
-		},
-		{
-			"id": "specialskill_GLREY01",
-			"name": "Lifeblood"
-		},
-		{
-			"id": "specialskill_GLREY02",
-			"name": "Sudden Whirlwind"
-		},
-		{
-			"id": "leaderskill_GLREY",
-			"name": "Wisdom of the Sacred Texts"
-		},
-		{
-			"id": "uniqueskill_GLREY01",
-			"name": "Manifest Inspiration"
-		},
-		{
-			"id": "uniqueskill_GALACTICLEGEND01",
-			"name": "Galactic Legend"
-		},
-		{
-			"id": "uniqueskill_REY01",
-			"name": "Focused Strikes"
-		},
-		{
-			"id": "leaderskill_REYJEDITRAINING",
-			"name": "Inspirational Presence"
-		},
-		{
-			"id": "uniqueskill_REYJEDITRAINING01",
-			"name": "Virtuous Protector"
-		},
-		{
-			"id": "uniqueskill_REYJEDITRAINING02",
-			"name": "Insight"
-		},
-		{
-			"id": "uniqueskill_l3_37_01",
-			"name": "For the Droids"
-		},
-		{
-			"id": "uniqueskill_EPIXPOE01",
-			"name": "Spark of Resistance"
-		},
-		{
-			"id": "uniqueskill_EPIXFINN01",
-			"name": "Spark of Resistance"
-		},
-		{
-			"id": "uniqueskill_GENERALKENOBI01",
-			"name": "Soresu"
-		},
-		{
-			"id": "uniqueskill_DARTHMALAK01",
-			"name": "Gnawing Terror"
-		},
-		{
-			"id": "uniqueskill_DARTHMALAK02",
-			"name": "Jaws of Life"
-		},
-		{
-			"id": "leaderskill_GEONOSIANBROODALPHA",
-			"name": "Geonosian Swarm"
-		},
-		{
-			"id": "uniqueskill_GEONOSIANBROODALPHA01",
-			"name": "Queen's Will"
-		},
-		{
-			"id": "uniqueskill_VEERS01",
-			"name": "Aggressive Tactician"
-		},
-		{
-			"id": "uniqueskill_COLONELSTARCK01",
-			"name": "Imperial Intelligence"
-		},
-		{
-			"id": "specialskill_ADMIRALPIETT02",
-			"name": "Suborbital Strike"
-		},
-		{
-			"id": "uniqueskill_ADMIRALPIETT01",
-			"name": "The Emperor's Trap"
-		},
-		{
-			"id": "specialskill_JEDIKNIGHTREVAN02",
-			"name": "Direct Focus"
-		},
-		{
-			"id": "leaderskill_JEDIKNIGHTREVAN",
-			"name": "General"
-		},
-		{
-			"id": "uniqueskill_JEDIKNIGHTREVAN02",
-			"name": "Hero"
-		},
-		{
-			"id": "specialskill_JOLEEBINDO02",
-			"name": "That Looks Pretty Bad"
-		},
-		{
-			"id": "specialskill_GRANDMASTERYODA03",
-			"name": "Battle Meditation"
-		},
-		{
-			"id": "leaderskill_GRANDMASTERYODA",
-			"name": "Grand Master's Guidance"
-		},
-		{
-			"id": "leaderskill_BASTILASHAN",
-			"name": "Initiative"
-		},
-		{
-			"id": "specialskill_EZRABRIDGERS301",
-			"name": "Watch and Learn"
-		},
-		{
-			"id": "specialskill_HERMITYODA02",
-			"name": "Strength Flows From the Force"
-		},
-		{
-			"id": "uniqueskill_HERMITYODA02",
-			"name": "Do or Do Not"
-		},
-		{
-			"id": "uniqueskill_OLDBENKENOBI01",
-			"name": "If You Strike Me Down"
-		},
-		{
-			"id": "specialskill_OLDBENKENOBI02",
-			"name": "Devoted Protector"
-		},
-		{
-			"id": "leaderskill_PADMEAMIDALA",
-			"name": "Unwavering Courage"
-		},
-		{
-			"id": "uniqueskill_PADMEAMIDALA01",
-			"name": "Always a Choice"
-		},
-		{
-			"id": "uniqueskill_ANAKINKNIGHT01",
-			"name": "Righteous Fury"
-		},
-		{
-			"id": "leaderskill_MOTHERTALZIN",
-			"name": "The Great Mother"
-		},
-		{
-			"id": "uniqueskill_MOTHERTALZIN01",
-			"name": "Plaguebearer"
-		},
-		{
-			"id": "leaderskill_ASAJVENTRESS",
-			"name": "Nightsister Swiftness"
-		},
-		{
-			"id": "uniqueskill_ASAJVENTRESS01",
-			"name": "Rampage"
-		},
-		{
-			"id": "uniqueskill_DAKA01",
-			"name": "Serve Again"
-		},
-		{
-			"id": "leaderskill_carthonasi",
-			"name": "Soldier of the Old Republic"
-		},
-		{
-			"id": "uniqueskill_CANDEROUSORDO01",
-			"name": "I Like a Challenge"
-		},
-		{
-			"id": "uniqueskill_MISSIONVAO02",
-			"name": "Me and Big Z Forever"
-		},
-		{
-			"id": "uniqueskill_juhani01",
-			"name": "Cathar Resilience"
-		},
-		{
-			"id": "uniqueskill_t3_m4_01",
-			"name": "Combat Logic Upgrade"
-		},
-		{
-			"id": "uniqueskill_t3_m4_02",
-			"name": "Master Gearhead"
-		},
-		{
-			"id": "specialskill_HERASYNDULLAS301",
-			"name": "Play to Strengths"
-		},
-		{
-			"id": "specialskill_KANANJARRUSS302",
-			"name": "Total Defense"
-		},
-		{
-			"id": "specialskill_ZEBS301",
-			"name": "Staggering Sweep"
-		},
-		{
-			"id": "specialskill_EZRABRIDGERS301",
-			"name": "Flourish"
-		},
-		{
-			"id": "specialskill_SABINEWRENS302",
-			"name": "Demolish"
-		},
-		{
-			"id": "leaderskill_FINN",
-			"name": "Balanced Tactics"
-		},
-		{
-			"id": "leaderskill_DARTHTRAYA",
-			"name": "Compassion is Weakness"
-		},
-		{
-			"id": "uniqueskill_DARTHTRAYA01",
-			"name": "Lord of Betrayal"
-		},
-		{
-			"id": "uniqueskill_DARTHSION01",
-			"name": "Lord of Pain"
-		},
-		{
-			"id": "leaderskill_DARTHNIHILUS",
-			"name": "Strength of the Void"
-		},
-		{
-			"id": "uniqueskill_DARTHNIHILUS01",
-			"name": "Lord of Hunger"
-		},
-		{
-			"id": "uniqueskill_NUTEGUNRAY01",
-			"name": "Viceroy's Reach"
-		},
-		{
-			"id": "uniqueskill_ENFYSNEST01",
-			"name": "Fighting Instinct"
-		},
-		{
-			"id": "leaderskill_DARTHREVAN",
-			"name": "Lord of the Sith"
-		},
-		{
-			"id": "uniqueskill_DARTHREVAN01",
-			"name": "Conqueror"
-		},
-		{
-			"id": "uniqueskill_DARTHREVAN02",
-			"name": "Villain"
-		},
-		{
-			"id": "uniqueskill_BASTILASHANDARK02",
-			"name": "Force Bond"
-		},
-		{
-			"id": "uniqueskill_HK4701",
-			"name": "Self-Reconstruction"
-		},
-		{
-			"id": "uniqueskill_HK4702",
-			"name": "Loyalty to the Maker"
-		}
-	]
+  "zetas": [
+    {
+      "id": "basicskill_GENERALSKYWALKER",
+      "name": "Furious Slash"
+    },
+    {
+      "id": "leaderskill_GENERALSKYWALKER",
+      "name": "General of the 501st"
+    },
+    {
+      "id": "uniqueskill_GENERALSKYWALKER01",
+      "name": "The chosen one"
+    },
+    {
+      "id": "uniqueskill_GENERALSKYWALKER02",
+      "name": "Hero with no fear"
+    },
+    {
+      "id": "uniqueskill_ARCTROOPER501ST01",
+      "name": "ARC Arsenal"
+    },
+    {
+      "id": "uniqueskill_ct21040802",
+      "name": "Domino Squad"
+    },
+    {
+      "id": "uniqueskill_REX01",
+      "name": "Brothers in Arms"
+    },
+    {
+      "id": "uniqueskill_CT555501",
+      "name": "Domino Squad"
+    },
+    {
+      "id": "uniqueskill_CT555502",
+      "name": "Tactical Awareness"
+    },
+    {
+      "id": "leaderskill_BOSSK",
+      "name": "On The Hunt"
+    },
+    {
+      "id": "uniqueskill_BOSSK01",
+      "name": "Trandoshan Rage"
+    },
+    {
+      "id": "uniqueskill_BOBAFETT01",
+      "name": "Bounty Hunter's Resolve"
+    },
+    {
+      "id": "leaderskill_JANGOFETT",
+      "name": "Anything to Get Ahead"
+    },
+    {
+      "id": "uniqueskill_JANGOFETT01",
+      "name": "Notorious Reputation"
+    },
+    {
+      "id": "uniqueskill_DENGAR01",
+      "name": "Grizzled Veteran"
+    },
+    {
+      "id": "uniqueskill_ZAMWESELL01",
+      "name": "Shapeshifter"
+    },
+    {
+      "id": "specialskill_GREEDO02",
+      "name": "Threaten"
+    },
+    {
+      "id": "uniqueskill_THEMANDALORIAN01",
+      "name": "Disciplined Bounty Hunter"
+    },
+    {
+      "id": "leaderskill_THEMANDALORIAN",
+      "name": "Asset Acquisition"
+    },
+    {
+      "id": "specialskill_GREEFKARGA01",
+      "name": "Bring Them in Cold"
+    },
+    {
+      "id": "specialskill_GREEFKARGA02",
+      "name": "Sweeten the Deal"
+    },
+    {
+      "id": "leaderskill_COMMANDERLUKESKYWALKER",
+      "name": "Rebel Maneuvers"
+    },
+    {
+      "id": "uniqueskill_COMMANDERLUKESKYWALKER01",
+      "name": "Learn Control"
+    },
+    {
+      "id": "uniqueskill_COMMANDERLUKESKYWALKER02",
+      "name": "It Binds All Things"
+    },
+    {
+      "id": "uniqueskill_HANSOLO01",
+      "name": "Shoots First"
+    },
+    {
+      "id": "uniqueskill_CHEWBACCALEGENDARY01",
+      "name": "Loyal Friend"
+    },
+    {
+      "id": "uniqueskill_CHEWBACCALEGENDARY02",
+      "name": "Raging Wookiee"
+    },
+    {
+      "id": "uniqueskill_R2D2_LEGENDARY01",
+      "name": "Combat Analysis"
+    },
+    {
+      "id": "uniqueskill_R2D2_LEGENDARY02",
+      "name": "Number Crunch"
+    },
+    {
+      "id": "uniqueskill_C3POLEGENDARY02",
+      "name": "Wait for Me!"
+    },
+    {
+      "id": "specialskill_C3POLEGENDARY01",
+      "name": "Oh My Goodness!"
+    },
+    {
+      "id": "specialskill_C3POCHEWBACCA02",
+      "name": "Chewie's Rage"
+    },
+    {
+      "id": "leaderskill_SHAAKTI",
+      "name": "Unity Wins War"
+    },
+    {
+      "id": "uniqueskill_SHAAKTI01",
+      "name": "Heightened Reflexes"
+    },
+    {
+      "id": "leaderskill_CC2224",
+      "name": "Ghost Company Commander"
+    },
+    {
+      "id": "uniqueskill_AHSOKATANO01",
+      "name": "Quick Steps"
+    },
+    {
+      "id": "uniqueskill_BARRISSOFFEE01",
+      "name": "Swift Recovery"
+    },
+    {
+      "id": "leaderskill_EMPERORPALPATINE",
+      "name": "Emperor of the Galactic Empire"
+    },
+    {
+      "id": "uniqueskill_EMPERORPALPATINE01",
+      "name": "Crackling Doom"
+    },
+    {
+      "id": "leaderskill_VADER",
+      "name": "Inspiring Through Fear"
+    },
+    {
+      "id": "uniqueskill_VADER01",
+      "name": "No Escape"
+    },
+    {
+      "id": "specialskill_VADER03",
+      "name": "Merciless Massacre"
+    },
+    {
+      "id": "uniqueskill_IMPERIALPROBEDROID01",
+      "name": "Imperial Logistics"
+    },
+    {
+      "id": "leaderskill_GRANDMOFFTARKIN",
+      "name": "Tighten the Grip"
+    },
+    {
+      "id": "uniqueskill_GRANDMOFFTARKIN01",
+      "name": "Callous Conviction"
+    },
+    {
+      "id": "uniqueskill_DEATHTROOPER01",
+      "name": "Krennic's Guard"
+    },
+    {
+      "id": "leaderskill_DIRECTORKRENNIC",
+      "name": "Director of Advanced Weapons Research"
+    },
+    {
+      "id": "uniqueskill_COUNTDOOKU01",
+      "name": "Flawless Riposte"
+    },
+    {
+      "id": "leaderskill_GRANDADMIRALTHRAWN",
+      "name": "Legendary Strategist"
+    },
+    {
+      "id": "uniqueskill_GRANDADMIRALTHRAWN01",
+      "name": "Ebb and Flow"
+    },
+    {
+      "id": "specialskill_KYLOREN02",
+      "name": "Outrage"
+    },
+    {
+      "id": "uniqueskill_KYLORENUNMASKED01",
+      "name": "Scarred"
+    },
+    {
+      "id": "leaderskill_KYLORENUNMASKED",
+      "name": "Merciless Pursuit"
+    },
+    {
+      "id": "uniqueskill_FIRSTORDERTROOPER01",
+      "name": "Return Fire"
+    },
+    {
+      "id": "uniqueskill_FIRSTORDERTIEPILOT01",
+      "name": "Keen Eye"
+    },
+    {
+      "id": "uniqueskill_GENERALHUX01",
+      "name": "Boundless Ambition"
+    },
+    {
+      "id": "uniqueskill_GRIEVOUS01",
+      "name": "Metalloid Monstrosity"
+    },
+    {
+      "id": "leaderskill_GRIEVOUS",
+      "name": "Daunting Presence"
+    },
+    {
+      "id": "uniqueskill_B2SUPERBATTLEDROID02",
+      "name": "Reactive Protocol"
+    },
+    {
+      "id": "uniqueskill_b1battledroidv2_02",
+      "name": "Droid Battalion"
+    },
+    {
+      "id": "uniqueskill_DROIDEKA01",
+      "name": "Deflector Shield Generator"
+    },
+    {
+      "id": "specialskill_MAGNAGUARD02",
+      "name": "Stunning Strike"
+    },
+    {
+      "id": "uniqueskill_BB801",
+      "name": "Roll with the Punches"
+    },
+    {
+      "id": "uniqueskill_BB802",
+      "name": "Self-Preservation Protocol"
+    },
+    {
+      "id": "uniqueskill_WATTAMBOR02",
+      "name": "Mass Manufacture"
+    },
+    {
+      "id": "basicskill_SUPREMELEADERKYLOREN",
+      "name": "Brutal Assault"
+    },
+    {
+      "id": "specialskill_SUPREMELEADERKYLOREN01",
+      "name": "Stasis Strike"
+    },
+    {
+      "id": "specialskill_SUPREMELEADERKYLOREN02",
+      "name": "Furious Onslaught"
+    },
+    {
+      "id": "uniqueskill_SUPREMELEADERKYLOREN01",
+      "name": "Press the Advantage"
+    },
+    {
+      "id": "leaderskill_SUPREMELEADERKYLOREN",
+      "name": "Supreme Leader"
+    },
+    {
+      "id": "uniqueskill_GALACTICLEGEND01",
+      "name": "Galactic Legend"
+    },
+    {
+      "id": "basicskill_GLREY",
+      "name": "Relentless Advance"
+    },
+    {
+      "id": "specialskill_GLREY01",
+      "name": "Lifeblood"
+    },
+    {
+      "id": "specialskill_GLREY02",
+      "name": "Sudden Whirlwind"
+    },
+    {
+      "id": "leaderskill_GLREY",
+      "name": "Wisdom of the Sacred Texts"
+    },
+    {
+      "id": "uniqueskill_GLREY01",
+      "name": "Manifest Inspiration"
+    },
+    {
+      "id": "uniqueskill_GALACTICLEGEND01",
+      "name": "Galactic Legend"
+    },
+    {
+      "id": "uniqueskill_REY01",
+      "name": "Focused Strikes"
+    },
+    {
+      "id": "leaderskill_REYJEDITRAINING",
+      "name": "Inspirational Presence"
+    },
+    {
+      "id": "uniqueskill_REYJEDITRAINING01",
+      "name": "Virtuous Protector"
+    },
+    {
+      "id": "uniqueskill_REYJEDITRAINING02",
+      "name": "Insight"
+    },
+    {
+      "id": "uniqueskill_l3_37_01",
+      "name": "For the Droids"
+    },
+    {
+      "id": "uniqueskill_EPIXPOE01",
+      "name": "Spark of Resistance"
+    },
+    {
+      "id": "uniqueskill_EPIXFINN01",
+      "name": "Spark of Resistance"
+    },
+    {
+      "id": "uniqueskill_GENERALKENOBI01",
+      "name": "Soresu"
+    },
+    {
+      "id": "uniqueskill_DARTHMALAK01",
+      "name": "Gnawing Terror"
+    },
+    {
+      "id": "uniqueskill_DARTHMALAK02",
+      "name": "Jaws of Life"
+    },
+    {
+      "id": "leaderskill_GEONOSIANBROODALPHA",
+      "name": "Geonosian Swarm"
+    },
+    {
+      "id": "uniqueskill_GEONOSIANBROODALPHA01",
+      "name": "Queen's Will"
+    },
+    {
+      "id": "uniqueskill_VEERS01",
+      "name": "Aggressive Tactician"
+    },
+    {
+      "id": "uniqueskill_COLONELSTARCK01",
+      "name": "Imperial Intelligence"
+    },
+    {
+      "id": "specialskill_ADMIRALPIETT02",
+      "name": "Suborbital Strike"
+    },
+    {
+      "id": "uniqueskill_ADMIRALPIETT01",
+      "name": "The Emperor's Trap"
+    },
+    {
+      "id": "specialskill_JEDIKNIGHTREVAN02",
+      "name": "Direct Focus"
+    },
+    {
+      "id": "leaderskill_JEDIKNIGHTREVAN",
+      "name": "General"
+    },
+    {
+      "id": "uniqueskill_JEDIKNIGHTREVAN02",
+      "name": "Hero"
+    },
+    {
+      "id": "specialskill_JOLEEBINDO02",
+      "name": "That Looks Pretty Bad"
+    },
+    {
+      "id": "specialskill_GRANDMASTERYODA03",
+      "name": "Battle Meditation"
+    },
+    {
+      "id": "leaderskill_GRANDMASTERYODA",
+      "name": "Grand Master's Guidance"
+    },
+    {
+      "id": "leaderskill_BASTILASHAN",
+      "name": "Initiative"
+    },
+    {
+      "id": "specialskill_EZRABRIDGERS301",
+      "name": "Watch and Learn"
+    },
+    {
+      "id": "specialskill_HERMITYODA02",
+      "name": "Strength Flows From the Force"
+    },
+    {
+      "id": "uniqueskill_HERMITYODA02",
+      "name": "Do or Do Not"
+    },
+    {
+      "id": "uniqueskill_OLDBENKENOBI01",
+      "name": "If You Strike Me Down"
+    },
+    {
+      "id": "specialskill_OLDBENKENOBI02",
+      "name": "Devoted Protector"
+    },
+    {
+      "id": "leaderskill_PADMEAMIDALA",
+      "name": "Unwavering Courage"
+    },
+    {
+      "id": "uniqueskill_PADMEAMIDALA01",
+      "name": "Always a Choice"
+    },
+    {
+      "id": "uniqueskill_ANAKINKNIGHT01",
+      "name": "Righteous Fury"
+    },
+    {
+      "id": "leaderskill_MOTHERTALZIN",
+      "name": "The Great Mother"
+    },
+    {
+      "id": "uniqueskill_MOTHERTALZIN01",
+      "name": "Plaguebearer"
+    },
+    {
+      "id": "leaderskill_ASAJVENTRESS",
+      "name": "Nightsister Swiftness"
+    },
+    {
+      "id": "uniqueskill_ASAJVENTRESS01",
+      "name": "Rampage"
+    },
+    {
+      "id": "uniqueskill_DAKA01",
+      "name": "Serve Again"
+    },
+    {
+      "id": "leaderskill_carthonasi",
+      "name": "Soldier of the Old Republic"
+    },
+    {
+      "id": "uniqueskill_CANDEROUSORDO01",
+      "name": "I Like a Challenge"
+    },
+    {
+      "id": "uniqueskill_MISSIONVAO02",
+      "name": "Me and Big Z Forever"
+    },
+    {
+      "id": "uniqueskill_juhani01",
+      "name": "Cathar Resilience"
+    },
+    {
+      "id": "uniqueskill_t3_m4_01",
+      "name": "Combat Logic Upgrade"
+    },
+    {
+      "id": "uniqueskill_t3_m4_02",
+      "name": "Master Gearhead"
+    },
+    {
+      "id": "specialskill_HERASYNDULLAS301",
+      "name": "Play to Strengths"
+    },
+    {
+      "id": "specialskill_KANANJARRUSS302",
+      "name": "Total Defense"
+    },
+    {
+      "id": "specialskill_ZEBS301",
+      "name": "Staggering Sweep"
+    },
+    {
+      "id": "specialskill_EZRABRIDGERS301",
+      "name": "Flourish"
+    },
+    {
+      "id": "specialskill_SABINEWRENS302",
+      "name": "Demolish"
+    },
+    {
+      "id": "leaderskill_FINN",
+      "name": "Balanced Tactics"
+    },
+    {
+      "id": "leaderskill_DARTHTRAYA",
+      "name": "Compassion is Weakness"
+    },
+    {
+      "id": "uniqueskill_DARTHTRAYA01",
+      "name": "Lord of Betrayal"
+    },
+    {
+      "id": "uniqueskill_DARTHSION01",
+      "name": "Lord of Pain"
+    },
+    {
+      "id": "leaderskill_DARTHNIHILUS",
+      "name": "Strength of the Void"
+    },
+    {
+      "id": "uniqueskill_DARTHNIHILUS01",
+      "name": "Lord of Hunger"
+    },
+    {
+      "id": "uniqueskill_NUTEGUNRAY01",
+      "name": "Viceroy's Reach"
+    },
+    {
+      "id": "uniqueskill_ENFYSNEST01",
+      "name": "Fighting Instinct"
+    },
+    {
+      "id": "leaderskill_DARTHREVAN",
+      "name": "Lord of the Sith"
+    },
+    {
+      "id": "uniqueskill_DARTHREVAN01",
+      "name": "Conqueror"
+    },
+    {
+      "id": "uniqueskill_DARTHREVAN02",
+      "name": "Villain"
+    },
+    {
+      "id": "uniqueskill_BASTILASHANDARK02",
+      "name": "Force Bond"
+    },
+    {
+      "id": "uniqueskill_HK4701",
+      "name": "Self-Reconstruction"
+    },
+    {
+      "id": "uniqueskill_HK4702",
+      "name": "Loyalty to the Maker"
+    }
+  ]
 }

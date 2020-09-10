@@ -10,32 +10,32 @@ import Paper from "@material-ui/core/Paper";
 import Card from "./Shared/Card";
 
 const MemberInfo = (props) => {
-	return (
-		<Card cardKey="1" title="Member Info">
-			<TableContainer component={Paper}>
-				<Table aria-label="Member table">
-					<TableHead>
-						<TableRow>
-							<TableCell>Name</TableCell>
-							<TableCell>GP</TableCell>
-							<TableCell>Toon Count</TableCell>
-							<TableCell>Ship Count</TableCell>
-						</TableRow>
-					</TableHead>
-					<tbody>
-						{getData().roster.map((row) => (
-							<TableRow>
-								<TableCell>{row.name}</TableCell>
-								<TableCell>{row.gp}</TableCell>
-								<TableCell>{row.toons.length}</TableCell>
-								<TableCell>{row.ships.length}</TableCell>
-							</TableRow>
-						))}
-					</tbody>
-				</Table>
-			</TableContainer>
-		</Card>
-	);
+  return (
+    <Card cardKey="1" title="Member Info">
+      <TableContainer component={Paper}>
+        <Table aria-label="Member table">
+          <TableHead>
+            <TableRow>
+              <TableCell>Name</TableCell>
+              <TableCell>GP</TableCell>
+              <TableCell>Toon Count</TableCell>
+              <TableCell>Ship Count</TableCell>
+            </TableRow>
+          </TableHead>
+          <tbody>
+            {getData().roster.map((row) => (
+              <TableRow>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.gp}</TableCell>
+                <TableCell>{row.toons.length}</TableCell>
+                <TableCell>{row.ships.length}</TableCell>
+              </TableRow>
+            ))}
+          </tbody>
+        </Table>
+      </TableContainer>
+    </Card>
+  );
 };
 
 export default MemberInfo;

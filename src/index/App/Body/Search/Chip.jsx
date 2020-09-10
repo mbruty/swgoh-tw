@@ -10,9 +10,9 @@ export default (props) => {
 	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const handleClickMenu = (event, idx) => {
-    let newArr = [...props.values];
-    newArr[props.index] = props.options[idx];
-    props.setValues(newArr);
+		let newArr = [...props.values];
+		newArr[props.index] = props.options[idx];
+		props.setValues(newArr);
 		setSelectedIndex(idx);
 	};
 
@@ -58,7 +58,10 @@ const ChipMenu = (props) => {
 				<MenuItem
 					key={option}
 					selected={index === props.selectedIndex}
-					onClick={(e) => props.handleClickMenu(e, index)}
+					onClick={(e) => {
+						props.popupState.close();
+						props.handleClickMenu(e, index);
+					}}
 				>
 					{option}
 				</MenuItem>
