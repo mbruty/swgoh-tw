@@ -12,55 +12,51 @@ const styles = makeStyles((theme) => ({
 let classes;
 
 const showSquad = (props) => {
-	let left = props.data.units.length > 6 ? 'left' : '';
-	left = props.data.units.length === 6 ? 'tadLeft' : left;
 	if (props.data !== {}) {
 		return (
 				<div class="row">
 					{props.data.units.map((unit) => (
 						<div id="toon" className="col-xs-6 col-sm-3 col-md-3 col-lg-2">
 							<img
-								class="char"
+								className="char"
 								alt={`${unit.defId}`}
 								src={`https://swgoh.gg/game-asset/u/${unit.defId}/`}
-								height="80"
-								width="80"
 							/>
 							<div
 								className={` ${
 									unit.relic.currentTier > 1
 										? "char-portrait-relic"
 										: `char-portrait-no-relic g${unit.gear}`
-								} ${unit.side} ${left}`}
+								} ${unit.side}`}
 							/>
 							<div
-								className={`star star1 ${unit.rarity >= 1 ? '' : "inactive"} ${left}`}
+								className={`star star1 ${unit.rarity >= 1 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star2 ${unit.rarity >= 2 ? '' : "inactive"} ${left}`}
+								className={`star star2 ${unit.rarity >= 2 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star3 ${unit.rarity >= 3 ? '' : "inactive"}${left}`}
+								className={`star star3 ${unit.rarity >= 3 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star4 ${unit.rarity >= 4 ? '' : "inactive"} ${left}`}
+								className={`star star4 ${unit.rarity >= 4 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star5 ${unit.rarity >= 5 ? '' : "inactive"} ${left}`}
+								className={`star star5 ${unit.rarity >= 5 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star6 ${unit.rarity >= 6 ? '' : "inactive"} ${left}`}
+								className={`star star6 ${unit.rarity >= 6 ? '' : "inactive"}`}
 							/>
 							<div
-								className={`star star7 ${unit.rarity >= 7 ? '' : "inactive"} ${left}`}
+								className={`star star7 ${unit.rarity >= 7 ? '' : "inactive"}`}
 							/>
 							{unit.zetas.count > 0 ? <Zeta zetas={unit.zetas} left={props.data.units.length > 6}/> : null}
 							{unit.relic.currentTier > 1 ? (
-								<div className={`relic ${unit.side} ${left}`}>
+								<div className={`relic ${unit.side}`}>
 									{unit.relic.currentTier - 2}
 								</div>
 							) : null}
-							<div className={`level ${left}`}>{unit.level}</div>
+							<div className={`level`}>{unit.level}</div>
 						</div>
 					))}
 				</div>
