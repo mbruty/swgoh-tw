@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import { AutoSizer, Column, Table } from "react-virtualized";
 import ShowSquad from "./ShowSquad";
 
-const MIN_WIDTH = 950;
+const MIN_WIDTH = 870;
 const styles = (theme) => ({
 	flexContainer: {
 		display: "flex",
@@ -40,7 +40,7 @@ const styles = (theme) => ({
 class MuiVirtualizedTable extends React.PureComponent {
 	static defaultProps = {
 		headerHeight: 48,
-		rowHeight: 250,
+		rowHeight: 140,
   }
   
 	getRowClassName = ({ index }) => {
@@ -134,6 +134,7 @@ class MuiVirtualizedTable extends React.PureComponent {
 						{...tableProps}
 						rowClassName={this.getRowClassName}
 					>
+						{console.log(width < MIN_WIDTH ? MIN_WIDTH : width)}
 						{columns.map(({ dataKey, ...other }, index) => {
 							return (
 								<Column
@@ -169,7 +170,8 @@ export default function ReactVirtualizedTable(props) {
 		height = 550;
 	}
 	return (
-		<Paper style={{ height, width: "100%", overflow: "scroll" }}>
+		<Paper className="virtual-paper" style={{ height }}>
+			{console.log("Tess")}
 			<VirtualizedTable
 				rowCount={props.data.length}
 				rowGetter={({ index }) => props.data[index]}
@@ -186,7 +188,7 @@ export default function ReactVirtualizedTable(props) {
 						numeric: true,
 					},
 					{
-						width: 1000,
+						width: 600,
 						label: "Squad",
 						dataKey: "squad",
 					},
