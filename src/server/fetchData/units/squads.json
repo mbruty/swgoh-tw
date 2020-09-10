@@ -46,8 +46,8 @@
 			"GRANDMOFFTARKIN",
 			"DEATHTROOPER",
 			"DIRECTORKRENNIC",
-            "COUNTDOOKU",
-            "GRANDADMIRALTHRAWN"
+			"COUNTDOOKU",
+			"GRANDADMIRALTHRAWN"
 		]
 	},
 	{
@@ -131,17 +131,30 @@
 			"COLONELSTARCK",
 			"RANGETROOPER",
 			"SNOWTROOPER",
-            "DEATHTROOPER",
-            "ADMIRALPIETT",
-            "SHORETROOPER",
-            "MAGMATROOPER",
-            "STORMTROOPER"
+			"DEATHTROOPER",
+			"ADMIRALPIETT",
+			"SHORETROOPER",
+			"MAGMATROOPER",
+			"STORMTROOPER"
 		]
 	},
 	{
 		"title": "Jedi",
 		"units": [
 			"JEDIKNIGHTREVAN",
+			"JOLEEBINDO",
+			"GRANDMASTERYODA",
+			"GENERALKENOBI",
+			"BASTILASHAN",
+			"EZRABRIDGERS3",
+			"HERMITYODA",
+			"OLDBENKENOBI"
+		],
+		"required":["JEDIKNIGHTREVAN"]
+	},
+	{
+		"title": "Jedi (without JKR)",
+		"units": [
 			"JOLEEBINDO",
 			"GRANDMASTERYODA",
 			"GENERALKENOBI",
