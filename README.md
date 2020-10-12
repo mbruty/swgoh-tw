@@ -1,4 +1,5 @@
 # SWGOH Guild Inspector
+[Link to the live site](http://tw.bruty.net)
 ## Example ally codes => 
 
  -   979-382-945
@@ -22,3 +23,4 @@
 - React.js for the website
 - Material-ui for most of the components
 - Sass for styling
+- Formik for the validation
