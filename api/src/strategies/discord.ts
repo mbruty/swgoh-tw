@@ -17,10 +17,11 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL: process.env.CLIENT_REDIRECT,
-      scope: ["identify", "guilds"],
+      scope: ["identify"],
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
+        console.log(profile);
         const user = await User.findOne({ id: profile.id });
         if (user) {
           done(null, user);
