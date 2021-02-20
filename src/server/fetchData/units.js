@@ -1,5 +1,11 @@
 const fs = require("fs");
 const sort = require("./shared/sort");
+const statCalculator = require('swgoh-stat-calc');
+const fetch = require("node-fetch");
+// Setup stat calc
+fetch('https://swgoh-stat-calc.glitch.me/gameData.json')
+  .then(res => res.json())
+  .then(gameData => statCalculator.setGameData( gameData ))
 let squadData = JSON.parse(
   fs.readFileSync("./server/fetchData/units/squads.json")
 );
@@ -58,22 +64,28 @@ const getSquads = (unitsList, name) => {
             zetas += getZeta(skill.id) + `\n`;
           }
         });
-        squadGp += playerUnit.gp;
+        const gp = statCalculator.calcCharGP(playerUnit);
+        squadGp += gp;
         // Get the stats we want to track from the unit
         unitArr.push({
           defId: playerUnit.defId,
           rarity: playerUnit.rarity,
           level: playerUnit.level,
           gear: playerUnit.gear,
-          gp: playerUnit.gp,
+          gp: gp,
           relic: playerUnit.relic,
           zetas: { count, names: zetas },
           side: getSide(playerUnit.defId),
+          stats: statCalculator.calcCharStats(playerUnit, {gameStyle: true})
         });
       }
     });
     if (unitArr.length >= 5) {
       unitArr = sort(unitArr, (a, b) => a.gp >= b.gp)
+      // Get the top 5 gp chars
+      unitArr = unitArr.slice(0, 5)
+      // Calc squad gp
+      const squadGp = unitArr.reduce((prev, curr) => prev + curr.gp, 0);
       // If the squad has a required field
       if (squad.required) {
         let containsRequired = squad.required.some((char) => {
@@ -81,9 +93,9 @@ const getSquads = (unitsList, name) => {
           return unitArr.some((c) => c.defId === char);
         });
         if (containsRequired)
-          squads.push({ title: squad.title, squadGp: squadGp, units: unitArr.slice(0, 5) });
+          squads.push({ title: squad.title, squadGp: squadGp, units: unitArr });
       } else
-        squads.push({ title: squad.title, squadGp: squadGp, units: unitArr.slice(0, 5) });
+        squads.push({ title: squad.title, squadGp: squadGp, units: unitArr });
     }
   });
   return { name, squads };

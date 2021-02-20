@@ -64,8 +64,7 @@
 			"FIRSTORDERTROOPER",
 			"FIRSTORDERTIEPILOT",
 			"GENERALHUX",
-			"PHASMAA",
-			"SITHTROOPER"
+			"PHASMAA"
 		]
 	},
 	{
@@ -267,12 +266,13 @@
 	{
 		"title": "Rey Killer 1",
 		"units": [
-			"JEDIKNIGHTREVAN",
-			"BASTILASHAN",
-			"GENERALSKYWALKER",
-			"HERMITYODA",
+			"DARTHREVAN",
+			"WATTAMBOR",
+			"DARTHMALAK",
+			"BASTILASHANDARK",
 			"GRANDADMIRALTHRAWN"
-		]
+		],
+		"required": ["WATTAMBOR"]
 	},
 	{
 		"title": "Rey Killer 2",
@@ -283,7 +283,8 @@
 			"DARTHTRAYA",
 			"SHORETROOPER",
 			"IMPERIALPROBEDROID"
-		]
+		],
+		"required": ["WATTAMBOR"]
 	},
 	{
 		"title": "Long Live the Empire!",

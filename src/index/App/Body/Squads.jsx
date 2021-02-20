@@ -61,14 +61,16 @@ const Suqads = (props) => {
   return (
     <>
       {data.map((element, idx) => (
-        <>
+        <div
+          className={element[0].squad.title.includes("GL") ? "GL-border" : ""}
+        >
           <Card
             title={element[0].squad.title}
             secondary={`Squad Count: ${element.length}`}
           >
             <MuiVirtualizedTable data={element} />
           </Card>
-        </>
+        </div>
       ))}
     </>
   );

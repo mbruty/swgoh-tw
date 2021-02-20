@@ -58,6 +58,13 @@ module.exports = async (allycodes, guild, swapi, socket) => {
       let counter = 0;
       a = a[0].squad.title;
       b = b[0].squad.title;
+      // If the squad is a GL, we move to the top
+      console.log({a, b})
+      if(a.includes("GL")) {
+        return true;
+      } else if (b.includes("GL")) {
+        return false;
+      }
       while(a.charCodeAt(counter) === b.charCodeAt(counter)){
         counter++;
       }
@@ -75,24 +82,6 @@ const processPlayers = (result, guildId, spookySquads) => {
     found.push(player.allyCode);
     // Add the player to the player cache
     cacheSet(player.allyCode, guildId);
-    let toonArr = [];
-    let shipArr = [];
-    player.roster.forEach((character) => {
-      //Actual relic level is currentTier - 2
-      let charObj = {
-        name: character.defId,
-        star: character.rarity,
-        level: character.level,
-        power: character.gp,
-        relic: character.relic,
-      };
-      if (character.combatType === 1) {
-        toonArr.push(charObj);
-      } else {
-        shipArr.push(charObj);
-      }
-    });
-
     let trackedSquads = getSquads(player.roster, player.name);
     // If the player has a tracked squad, add it to the array
     if (trackedSquads.squads.length > 0) {
