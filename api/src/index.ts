@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const passport = require("passport");
 const session = require("express-session");
+const cors = require("cors");
 require("dotenv").config();
-import auth from "./middleware/auth";
+import auth from "./routes/auth";
 import db from "./database/database";
 import discord from "./strategies/discord";
 import useAuth from "./middleware/useAuth";
@@ -11,6 +12,13 @@ import useAuth from "./middleware/useAuth";
 db.then(() => {
   console.log("⚡️ connected to mongo");
 });
+
+app.use(
+  cors({
+    origin: process.env.ORIGIN,
+    credentials: true,
+  })
+);
 
 app.use(
   session({

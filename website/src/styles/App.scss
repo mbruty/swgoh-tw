@@ -1,0 +1,41 @@
+@media (prefers-color-scheme: dark) {
+  @import "dark";
+}
+
+@media (prefers-color-scheme: light) {
+  @import "light";
+}
+
+.app {
+  height: 100vh;
+  overflow: hidden;
+}
+
+#drawer > :first-child {
+ padding-top: 64px;
+}
+
+main {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+// Overwiting the original color
+.MuiAppBar-colorPrimary {
+  color: white !important;
+}
+
+@media only screen and (max-device-width: 500px) {
+  #drawer-closed > div {
+    width: 0;
+  }
+
+  #drawer-open > div {
+    width: 100vw;
+  }
+  main form.login-container {
+    grid-template-columns: 95%;
+  }
+}

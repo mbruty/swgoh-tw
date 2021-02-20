@@ -29,6 +29,7 @@ passport.use(
           const newUser = await User.create({
             id: profile.id,
             username: profile.username,
+            avatarUri: profile.avatar,
           });
           const saved = await newUser.save();
           done(null, saved);
