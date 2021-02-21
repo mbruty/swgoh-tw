@@ -3,11 +3,16 @@ const app = express();
 const passport = require("passport");
 const session = require("express-session");
 const cors = require("cors");
+const bodyParser = require('body-parser');
+require("./swgoh-api");
 require("dotenv").config();
+require("./queue");
 import auth from "./routes/auth";
 import db from "./database/database";
 import discord from "./strategies/discord";
 import useAuth from "./middleware/useAuth";
+import me from "./routes/me";
+import data from "./routes/data";
 
 db.then(() => {
   console.log("⚡️ connected to mongo");
@@ -34,8 +39,14 @@ app.use(
 
 app.use(discord.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 
 app.use("/auth", auth);
+app.use("/me", me);
+app.use("/data", data);
 
 app.get("/protected", useAuth, (req, res) => {
   res.json(req.user);

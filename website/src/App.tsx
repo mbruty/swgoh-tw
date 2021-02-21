@@ -6,8 +6,8 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import LogIn from "./components/LogIn";
-import Home from "./components/Home";
+import LogIn from "./main-routes/LogIn";
+import Home from "./main-routes/Home";
 
 function App() {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -35,14 +35,21 @@ function App() {
         className="app"
         style={{ backgroundColor: theme.palette.background.default }}
       >
-        <main>
-          <BrowserRouter>
-            <Switch>
-              <Route exact path="/" render={() => <Home />} />
-              <Route exact path="/login" render={() => <LogIn />} />
-            </Switch>
-          </BrowserRouter>
-        </main>
+        <BrowserRouter>
+          <Switch>
+            <Route exact path="/login" render={() => <LogIn />} />
+            <Route
+              path="/*"
+              render={() => (
+                <Home
+                  navColour={
+                    prefersDarkMode ? "#333333" : theme.palette.primary.light
+                  }
+                />
+              )}
+            />
+          </Switch>
+        </BrowserRouter>
       </div>
     </ThemeProvider>
   );

@@ -15,27 +15,31 @@
  padding-top: 64px;
 }
 
-main {
+.center {
   display: grid;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
 
+.main-content-under-nav {
+  height: calc(100vh - 64px );
+  width: 100vw;
+
+  div.MuiPaper-root.MuiPaper-elevation1.MuiPaper-rounded div.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: row nowrap;
+  }
+}
+
+
+img.icon{
+  border-radius: 50%;
+  width: 24px;
+}
+
 // Overwiting the original color
 .MuiAppBar-colorPrimary {
   color: white !important;
-}
-
-@media only screen and (max-device-width: 500px) {
-  #drawer-closed > div {
-    width: 0;
-  }
-
-  #drawer-open > div {
-    width: 100vw;
-  }
-  main form.login-container {
-    grid-template-columns: 95%;
-  }
 }
