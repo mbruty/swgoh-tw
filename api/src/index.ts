@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 require("./swgoh-api");
 require("dotenv").config();
 require("./queue");
+require("./bot");
 import auth from "./routes/auth";
 import db from "./database/database";
 import discord from "./strategies/discord";

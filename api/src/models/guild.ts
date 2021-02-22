@@ -6,6 +6,7 @@ const guild = new mongoose.Schema({
   allycodes: { type: [String], required: false },
   ownerID: { type: String, required: true },
   inviteToken: { type: String, required: true },
+  mentionId: { type: String, required: false },
 });
 
 const Guild = (module.exports = mongoose.model("Guild", guild));
